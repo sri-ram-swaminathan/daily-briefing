@@ -1,6 +1,6 @@
 """Upload the private data to a Hugging Face Storage Bucket (or dataset repo), once.
 
-    HF_TOKEN=<write token> uv run tools/upload_data.py hf://buckets/<owner>/daily-briefing-data \
+    HF_WRITE_TOKEN=<write token> uv run tools/upload_data.py hf://buckets/<owner>/daily-briefing-data \
         --from ../dass-news
 
 Uploads, keeping this layout (data_store.py downloads the same paths):
@@ -49,11 +49,19 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true", help="List what would be uploaded")
     ap.add_argument("--include-extra", action="store_true", help="Also upload news-data/ (our extra feeds)")
     args = ap.parse_args()
-    token = os.getenv("HF_TOKEN")
+    # HF_WRITE_TOKEN first: .env usually holds the app's *read* HF_TOKEN, and data_store loads .env.
+    token = os.getenv("HF_WRITE_TOKEN") or os.getenv("HF_TOKEN")
+    source = "HF_WRITE_TOKEN" if os.getenv("HF_WRITE_TOKEN") else "HF_TOKEN" if token else "saved login (hf auth login)"
     kind, repo_id, prefix = parse_source(args.dest)
     from huggingface_hub import HfApi
 
     api = HfApi(token=token)
+    if not args.dry_run:
+        auth = api.whoami().get("auth", {}).get("accessToken", {})
+        role = auth.get("role", "?")
+        print(f"Token from {source}: '{auth.get('displayName', '?')}', role {role}")
+        if role == "read":
+            raise SystemExit("That is a read-only token. Set HF_WRITE_TOKEN to a token with write access.")
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         files = stage(args.src, tmp, args.include_extra)

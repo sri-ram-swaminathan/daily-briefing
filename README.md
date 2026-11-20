@@ -155,7 +155,7 @@ the first time something needs it. All of it is ignored by git.
 
 ```sh
 # once, from a folder that has the data (needs a write token):
-HF_TOKEN=hf_... uv run tools/upload_data.py hf://buckets/<owner>/daily-briefing-data --from ../dass-news
+HF_WRITE_TOKEN=hf_... uv run tools/upload_data.py hf://buckets/<owner>/daily-briefing-data --from ../dass-news
 
 # everywhere else (.env or Space secrets):
 HF_DATA_URL=hf://buckets/<owner>/daily-briefing-data
