@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's Next · The News Council</title>
+  <meta name="description" content="Where The News Council goes next: cheaper to run, a business model that scales, and the known issues we're fixing.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="next-page">
+  <header class="masthead">
+    <div class="ears">
+      <div class="ear ear-left"><span class="smallcaps">Nuanced</span> · <span class="smallcaps">Personalized</span> · <span class="smallcaps">Interactive</span></div>
+      <div class="ear ear-right"><span class="pill pill-build">Under construction</span></div>
+    </div>
+    <h1 class="title"><a href="index.html">The News Council</a></h1>
+    <div class="dateline">
+      <span>Vol. I · No. 2</span>
+      <span>The Works Section</span>
+      <span>Hard hats required</span>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="index.html#front">Front page</a>
+      <a href="index.html#briefing">Your briefing</a>
+      <a href="index.html#council">The Council</a>
+      <a href="index.html#ask">Ask the desk</a>
+      <a href="index.html#reels">Reels</a>
+      <a href="index.html#newsroom">Flywheel</a>
+      <a href="next.html" class="active" aria-current="page">What's next</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="front next-front">
+      <p class="kicker">What's next</p>
+      <h2 class="lead-headline">Three sites, <em>still under construction.</em></h2>
+      <p class="standfirst">The prototype works: briefings from the dataset, two very different listeners, every claim linked to its source. Here's what we'd build next, with the numbers from this build and the problems we already know about.</p>
+      <ol class="next-toc">
+        <li><a href="#cost"><span class="num">I.</span> Make it cheap enough to give away</a></li>
+        <li><a href="#business"><span class="num">II.</span> Who pays, and how it grows</a></li>
+        <li><a href="#issues"><span class="num">III.</span> What's broken, and how we'll fix it</a></li>
+      </ol>
+    </section>
+
+    <!-- ============ I. COST ============ -->
+    <section id="cost" class="section next-row">
+      <figure class="site-art">
+        <div class="tape" aria-hidden="true"></div>
+        <img src="assets/next/cost.png" alt="Hand-drawn construction site: workers use a crane to lower a coin into a piggy bank wrapped in scaffolding, while another trims a long receipt with scissors." width="960" height="640" loading="lazy">
+        <figcaption>Site I · trimming the bill</figcaption>
+      </figure>
+      <div class="next-copy">
+        <p class="kicker">Under construction · I · Cost</p>
+        <h2>Make it cheap enough to give away</h2>
+        <p class="next-lead">Today the council reads all 1,740 articles for <b>$12.84</b>, and one listener costs about <b>48 cents a day</b>. Most of that is the voice: ElevenLabs narration is 28 cents, and the spoken answers to three questions are another 17.</p>
+        <div class="next-cols">
+          <div class="next-now">
+            <h3>Where it stands</h3>
+            <ul>
+              <li>Seven persona calls per article, each sending the whole article.</li>
+              <li>Every listener's narration is generated from scratch, even for shared stories.</li>
+              <li>Every article gets a full council, even price tickers and duplicate translations.</li>
+            </ul>
+          </div>
+          <div class="next-plan">
+            <h3>What we'll build</h3>
+            <ul>
+              <li><b>Triage first.</b> A small, cheap model skips stories no persona would react to. With prompt caching, the council drops from $12.84 to <b>$4.81</b> for the full dataset.</li>
+              <li><b>Batch overnight.</b> The council runs before anyone's awake, so it can use the half-price batch API.</li>
+              <li><b>Voice once, not per listener.</b> Narrate shared facts once per story and cache them, and only voice each listener's own "why it matters" line. A budget tier on OpenAI TTS cuts voice from 28 cents to about 4.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="next-goal"><span class="smallcaps">Target</span> 10 to 15 cents per listener per day, from about 48.</p>
+      </div>
+    </section>
+
+    <!-- ============ II. BUSINESS & SCALE ============ -->
+    <section id="business" class="section next-row flip">
+      <figure class="site-art">
+        <div class="tape" aria-hidden="true"></div>
+        <img src="assets/next/business.png" alt="Hand-drawn construction site: workers build a newspaper kiosk that grows into a tall building with scaffolding and a crane, while people queue at the window." width="960" height="640" loading="lazy">
+        <figcaption>Site II · from kiosk to tower</figcaption>
+      </figure>
+      <div class="next-copy">
+        <p class="kicker">Under construction · II · Business model and scale</p>
+        <h2>Who pays, and how it grows</h2>
+        <p class="next-lead">The costs have an unusual shape: the council's cost grows with the <b>news</b>, not the audience. Ten times the articles costs ten times as much ($128); ten times the listeners leaves the council bill where it was. Margins improve as more people listen.</p>
+        <div class="next-cols">
+          <div class="next-now">
+            <h3>Who pays</h3>
+            <ul>
+              <li><b>Publishers</b> license it as a premium tier of their subscription, priced per active listener. It's a retention feature, not an ad slot.</li>
+              <li><b>Professional desks</b> (the Maxes) pay per seat for a briefing they can check before acting.</li>
+              <li><b>Syndicators</b> like Newstex resell it on the feeds they already deliver: one integration, many outlets.</li>
+            </ul>
+          </div>
+          <div class="next-plan">
+            <h3>How it scales</h3>
+            <ul>
+              <li><b>A real search index.</b> Swap the in-memory keyword search for a vector index that holds months of news, not four days.</li>
+              <li><b>A morning job queue.</b> Council, briefings and narration run as parallel jobs, ready before 6 a.m. for every listener.</li>
+              <li><b>Every language in the feed.</b> The dataset already carries German and Dutch, so each listener should hear their briefing in their own language.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="next-goal"><span class="smallcaps">Target</span> one integration per syndicator, briefings in English, German and Dutch.</p>
+      </div>
+    </section>
+
+    <!-- ============ III. ISSUES ============ -->
+    <section id="issues" class="section next-row">
+      <figure class="site-art">
+        <div class="tape" aria-hidden="true"></div>
+        <img src="assets/next/issues.png" alt="Hand-drawn repair site: workers fix a cracked bridge made of speech bubbles, one inspecting the crack with a magnifying glass, next to a warning sign and traffic cones." width="960" height="640" loading="lazy">
+        <figcaption>Site III · mending the bridge</figcaption>
+      </figure>
+      <div class="next-copy">
+        <p class="kicker">Under construction · III · Known issues</p>
+        <h2>What's broken, and how we'll fix it</h2>
+        <p class="next-lead">We'd rather say it before you find it. These are the weak spots we know about from building and testing the prototype.</p>
+        <dl class="issues">
+          <div>
+            <dt>The council members are simulations</dt>
+            <dd><b>Issue:</b> seven characters written by a language model can slide into stereotypes of the people they stand for. <b>Fix:</b> co-write each persona with real people from that walk of life, audit their reactions for bias, and keep labelling them as fictional.</dd>
+          </div>
+          <div>
+            <dt>Not every claim is pinned down yet</dt>
+            <dd><b>Issue:</b> 36 of 38 sentences in the demo briefings match a verbatim passage; the other 2 only link to their article. Figures are only checked when written as digits, so "four point six percent" slips past, and a few council reviews per batch fail the quote check and wait for a retry. <b>Fix:</b> normalise spoken numbers before checking, add a second verifier pass, and hold back any story with an unverified fact.</dd>
+          </div>
+          <div>
+            <dt>The learning loop isn't closed</dt>
+            <dd><b>Issue:</b> questions, skips and replays aren't stored yet, so steps 5 and 6 of the flywheel are a plan. Answers that reach the web also depend on the quality of what it finds. <b>Fix:</b> log signals with consent and without identities, give editors a daily "what people asked" view, and rank web sources by trust.</dd>
+          </div>
+          <div>
+            <dt>Live answers need a server that's awake</dt>
+            <dd><b>Issue:</b> the public demo replays recorded answers; live questions and the voice briefing need a running server, and the first voice reply takes a few seconds. <b>Fix:</b> an always-on deployment, streamed answers and pre-warmed voices.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section next-end">
+      <p class="kicker">The short version</p>
+      <h2 class="next-end-line">Cheaper per listener. Paid for by the people who already pay for news. <em>Honest about what's still wet cement.</em></h2>
+      <p><a class="more" href="index.html">← Back to the front page</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-cols">
+      <div>
+        <p class="footer-title">The News Council</p>
+        <p>Built at the MAIN AI Hackathon, Maastricht, 20–21 November 2026. Figures on this page come from tools/cost_model.py and the demo build; prices are list-price assumptions.</p>
+      </div>
+      <div>
+        <p class="smallcaps">The code</p>
+        <p><a href="https://github.com/sri-ram-swaminathan/daily-briefing">github.com/sri-ram-swaminathan/daily-briefing</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
