@@ -57,11 +57,18 @@ def main() -> None:
 
     api = HfApi(token=token)
     if not args.dry_run:
-        auth = api.whoami().get("auth", {}).get("accessToken", {})
+        me = api.whoami()
+        auth = me.get("auth", {}).get("accessToken", {})
         role = auth.get("role", "?")
-        print(f"Token from {source}: '{auth.get('displayName', '?')}', role {role}")
+        print(f"Token from {source}: '{auth.get('displayName', '?')}', role {role}, Hugging Face user '{me['name']}'")
         if role == "read":
             raise SystemExit("That is a read-only token. Set HF_WRITE_TOKEN to a token with write access.")
+        owners = {me["name"]} | {o["name"] for o in me.get("orgs", [])}
+        owner = repo_id.split("/")[0]
+        if owner not in owners:
+            raise SystemExit(f"This token can't write to '{owner}'. Your Hugging Face account is '{me['name']}'"
+                             f"{' (orgs: ' + ', '.join(sorted(owners - {me['name']})) + ')' if len(owners) > 1 else ''}."
+                             f"\nUse: hf://buckets/{me['name']}/{repo_id.split('/')[1]}")
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         files = stage(args.src, tmp, args.include_extra)
