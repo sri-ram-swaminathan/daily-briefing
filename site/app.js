@@ -677,19 +677,6 @@
     };
   }
 
-  function setMode(live) {
-    const pill = $("#mode-pill");
-    pill.className = `pill ${live ? "pill-live" : "pill-demo"}`;
-    pill.textContent = live ? "Live edition" : "Demo edition";
-    $("#paste-text").disabled = !live;
-    $("#paste-btn").disabled = !live;
-    $("#paste-hint").textContent = live ? "Paste a story, a press release or your own summary. Seven people will react, then the moderator sums up." : "Connect a News Council server (see the footer) to hear the council react to text you paste. In this demo edition, pick a story above.";
-    $("#desk-note").textContent = live ? `Live: answers come from the research desk${S.health?.web_search ? " with web search" : ""}, and it remembers this conversation.` : "Demo edition: the replays are real answers recorded from the research desk, web searches included. Typed questions are answered from the stories on this page; the live desk searches the whole dataset and the web.";
-    $("#api-status").textContent = live ? `Connected to ${S.api || location.origin}.` : "Run `uv run app.py` and open it, or paste its URL here.";
-    if (live) renderReaderSwitch();
-    renderSuggestions();
-    updateLiveVoice();
-  }
 
   $("#api-form").onsubmit = async (e) => {
     e.preventDefault();
