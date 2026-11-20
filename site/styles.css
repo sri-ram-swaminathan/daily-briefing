@@ -305,13 +305,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Footer ---------- */
 .footer { margin-top: 64px; background: var(--ink); color: var(--paper); }
-.footer-cols { max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; font: 400 14px/1.6 var(--sans); }
+.footer-cols { max-width: 720px; margin: 0 auto; padding: 36px 24px; text-align: center; font: 400 14px/1.6 var(--sans); }
 .footer .smallcaps { color: #cfc8d4; }
 .footer-title { font: 400 30px var(--black); margin: 0 0 6px; }
 .footer .hint { color: #b8b0bd; }
 .footer code { background: rgba(255,255,255,.1); color: var(--paper); }
-.api-form { display: flex; gap: 8px; margin-top: 8px; }
-.api-form input { flex: 1; min-width: 0; font: 400 14px var(--sans); padding: 9px 12px; border-radius: 999px; border: 0; }
 .footer .ghost-btn { border-color: var(--paper); color: var(--paper); }
 
 .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--paper); font: 500 14px var(--sans); padding: 10px 16px; border-radius: 999px; z-index: 60; box-shadow: var(--shadow); }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261121c">
+  <link rel="stylesheet" href="styles.css?v=20261121d">
 </head>
 <body>
   <a class="skip" href="#briefing">Skip to your briefing</a>
@@ -127,7 +127,7 @@
 
       <div class="paste-box" id="paste-box">
         <h3>Paste any story</h3>
-        <p class="hint" id="paste-hint">Connect a News Council server (see the footer) to hear the council react to text you paste. In this demo edition, pick a story above.</p>
+        <p class="hint" id="paste-hint">The live council isn't connected right now, so pasting is off. In this demo edition, pick a story above.</p>
         <textarea id="paste-text" rows="4" placeholder="Paste a news story or a few paragraphs…" disabled></textarea>
         <button class="solid-btn" id="paste-btn" disabled>Convene the council</button>
       </div>
@@ -259,18 +259,10 @@
         <p class="footer-title">The News Council</p>
         <p>Built at the MAIN AI Hackathon, Maastricht, 20–21 November 2026. Council personas are fictional. Article text stays with its publishers: we show headlines, our own summaries, short attributed quotes and links.</p>
       </div>
-      <div>
-        <p class="smallcaps">Live server</p>
-        <form id="api-form" class="api-form">
-          <input id="api-input" type="url" placeholder="https://your-news-council-server" aria-label="Server URL">
-          <button class="ghost-btn" type="submit">Connect</button>
-        </form>
-        <p class="hint" id="api-status">Run <code>uv run app.py</code> and open it, or paste its URL here.</p>
-      </div>
     </div>
   </footer>
 
   <div class="toast" id="toast" role="status" hidden></div>
-  <script src="app.js?v=20261121c"></script>
+  <script src="app.js?v=20261121d"></script>
 </body>
 </html>

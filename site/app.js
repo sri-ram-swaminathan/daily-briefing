@@ -677,17 +677,19 @@
     };
   }
 
+  function setMode(live) {
+    const pill = $("#mode-pill");
+    pill.className = `pill ${live ? "pill-live" : "pill-demo"}`;
+    pill.textContent = live ? "Live edition" : "Demo edition";
+    $("#paste-text").disabled = !live;
+    $("#paste-btn").disabled = !live;
+    $("#paste-hint").textContent = live ? "Paste a story, a press release or your own summary. Seven people will react, then the moderator sums up." : "The live council isn't connected right now, so pasting is off. In this demo edition, pick a story above.";
+    $("#desk-note").textContent = live ? `Live: answers come from the research desk${S.health?.web_search ? " with web search" : ""}, and it remembers this conversation.` : "Demo edition: the replays are real answers recorded from the research desk, web searches included. Typed questions are answered from the stories on this page; the live desk searches the whole dataset and the web.";
+    if (live) renderReaderSwitch();
+    renderSuggestions();
+    updateLiveVoice();
+  }
 
-  $("#api-form").onsubmit = async (e) => {
-    e.preventDefault();
-    const url = $("#api-input").value.trim().replace(/\/$/, "");
-    store.set("nc-api", url || null);
-    const found = await detectApi();
-    S.api = found ? found.base : null;
-    S.health = found?.health;
-    setMode(!!found);
-    toast(found ? "Connected to the live desk." : "Couldn't reach that server.");
-  };
   // Hand-in checklist: each button demonstrates one requirement.
   document.querySelector(".handin").onclick = (e) => {
     const go = e.target.closest("[data-go]")?.dataset.go;
