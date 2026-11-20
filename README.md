@@ -184,8 +184,7 @@ tested, ready to switch on later:
   sentence-level sources, the council's reactions to 20 dataset stories, recorded research-desk
   conversations, reels, the newsroom flywheel and costs. Typed questions are answered from the
   stories on the page.
-* **What's next** (`site/next.html`): cost, business model and scale, and the known issues, with the
-  numbers from this build.
+* **What's next** (the last section): cost, business model and scale, and the known issues.
 * **Live edition**: when the page reaches a server (same origin, `?api=URL`, or the URL box in the
   footer), you can build a briefing for **You**, ask the desk anything, paste a story for the
   council and talk to the voice briefing. Set `CORS_ORIGINS` on the server to your Pages origin.
@@ -195,7 +194,7 @@ Rebuild the demo data after new council runs:
 ```sh
 uv run tools/build_site_data.py      # listeners, claim links, narration, desk Q&A, reels
 uv run tools/crop_avatars.py         # portraits from img/1-4.png
-uv run tools/make_next_art.py        # the "under construction" drawings on next.html (gpt-image-2)
+uv run tools/make_next_art.py        # the "under construction" drawings in What's next (gpt-image-2)
 ```
 
 `.github/workflows/pages.yml` publishes `site/` to GitHub Pages on every push to `main`

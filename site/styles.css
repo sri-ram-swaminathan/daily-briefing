@@ -434,40 +434,18 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .fw-runner { display: none; } .fw-arc.on { animation: none; } }
 
-/* ---------- What's next (next.html) ---------- */
-.pill-build { background: repeating-linear-gradient(-45deg, var(--butter) 0 8px, #fff 8px 16px); color: var(--ink); border: 1px solid var(--ink); }
-.next-front .lead-headline { max-width: 900px; }
-.next-toc { list-style: none; padding: 0; margin: 8px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; font: 600 15px var(--sans); }
-.next-toc a { text-decoration: none; border-bottom: 1px solid var(--ink); }
-.next-toc .num { font: italic 700 16px var(--display); color: var(--muted); margin-right: 4px; }
-.next-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 44px; align-items: start; }
-.next-row.flip .site-art { order: 2; }
-.site-art { margin: 0; position: sticky; top: 76px; background: var(--paper); }
-.site-art img { width: 100%; height: auto; mix-blend-mode: multiply; display: block; }
-.site-art .tape { height: 14px; border-radius: 2px; margin-bottom: 10px; transform: rotate(-1.2deg);
-  background: repeating-linear-gradient(-45deg, var(--butter) 0 14px, var(--ink) 14px 28px); opacity: .85; }
-.site-art figcaption { font: italic 15px var(--serif); color: var(--ink-2); text-align: center; margin-top: 6px; }
-.next-copy h2 { font: 800 clamp(30px, 4vw, 46px)/1.08 var(--display); margin: 0 0 12px; }
-.next-lead { font-size: 19px; color: var(--ink-2); margin: 0 0 20px; }
-.next-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.next-cols > div { border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px; background: #fff; }
-.next-cols .next-plan { box-shadow: 5px 5px 0 var(--sage); }
-.next-cols h3 { font: 800 19px var(--display); margin: 0 0 8px; }
-.next-cols ul { margin: 0; padding-left: 18px; font: 400 14.5px/1.55 var(--sans); }
-.next-cols li { margin: 0 0 8px; }
-.next-goal { margin: 18px 0 0; font: italic 600 20px var(--display); border-top: 3px double var(--rule); padding-top: 12px; }
-.next-goal .smallcaps { font-style: normal; margin-right: 8px; }
-.issues { margin: 0; display: grid; gap: 12px; }
-.issues > div { border-left: 4px solid var(--rose-ink); background: #fff; padding: 12px 16px; border-radius: 0 4px 4px 0; }
-.issues dt { font: 800 19px var(--display); margin-bottom: 4px; }
-.issues dd { margin: 0; font: 400 14.5px/1.55 var(--sans); color: var(--ink); }
-.next-end { text-align: center; }
-.next-end-line { font: 900 clamp(26px, 3.6vw, 40px)/1.15 var(--display); max-width: 900px; margin: 0 auto 18px; text-wrap: balance; }
-.next-end-line em { color: var(--lav-ink); font-weight: 700; }
-@media (max-width: 900px) {
-  .next-row { grid-template-columns: 1fr; gap: 20px; }
-  .next-row.flip .site-art { order: 0; }
-  .site-art { position: static; max-width: 560px; margin: 0 auto; }
-  .next-cols { grid-template-columns: 1fr; }
-}
-.next-teaser { margin: 26px 0 0; text-align: right; }
+/* ---------- What's next ---------- */
+.next-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.next-card { border: 1px solid var(--rule); border-radius: 4px; background: #fff; padding: 18px 20px 20px; display: flex; flex-direction: column; }
+.next-card .kicker { margin: 12px 0 6px; }
+.next-card h3 { font: 800 24px/1.15 var(--display); margin: 0 0 8px; }
+.next-card > p { margin: 0 0 10px; font-size: 16px; color: var(--ink-2); }
+.next-card ul { margin: 0 0 12px; padding-left: 18px; font: 400 14px/1.5 var(--sans); flex: 1; }
+.next-card li { margin: 0 0 6px; }
+.site-art { margin: 0; background: #fff; }
+.site-art img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+.site-art .tape { height: 10px; border-radius: 2px; margin-bottom: 8px; transform: rotate(-1deg);
+  background: repeating-linear-gradient(-45deg, var(--butter) 0 12px, var(--ink) 12px 24px); opacity: .85; }
+.next-goal { margin: 0; padding-top: 10px; border-top: 3px double var(--rule); font: italic 600 17px var(--display) !important; color: var(--ink) !important; }
+.next-goal .smallcaps { font-style: normal; margin-right: 6px; font-size: 10.5px; }
+@media (max-width: 1000px) { .next-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
