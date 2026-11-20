@@ -45,17 +45,21 @@
     } catch { return null; }
   }
 
-  async function detectApi() {
+  // The hosted live server (Hugging Face Space). Pages and the custom domain use it when it's awake.
+  const DEFAULT_API = "https://srilearns-daily-briefing.hf.space";
+
+  async function detectApi(timeoutMs = 2500) {
     const params = new URLSearchParams(location.search);
     const candidates = [];
     if (params.get("api")) candidates.push(params.get("api"));
     if (store.get("nc-api")) candidates.push(store.get("nc-api"));
     if (!/github\.io$/.test(location.hostname) && location.protocol.startsWith("http")) candidates.push("");
+    if (location.origin !== DEFAULT_API) candidates.push(DEFAULT_API);
     for (const base of candidates) {
       const url = base.replace(/\/$/, "");
       try {
         const ctl = new AbortController();
-        const t = setTimeout(() => ctl.abort(), 2500);
+        const t = setTimeout(() => ctl.abort(), url === DEFAULT_API ? timeoutMs * 2 : timeoutMs);
         const r = await fetch(`${url}/api/health`, { signal: ctl.signal });
         clearTimeout(t);
         if (r.ok) { const h = await r.json(); if (h.ok) return { base: url, health: h }; }
@@ -649,6 +653,15 @@
     setMode(false);
     addMsg("desk", `<p>Morning. I'm the research desk. Pick a question, or ask me about any story: “where's that from?”, “go deeper”, “what does the council think?”</p>`).classList.add("hello");
     const found = await detectApi();
-    if (found) { S.api = found.base; S.health = found.health; setMode(true); }
+    if (found) { S.api = found.base; S.health = found.health; setMode(true); return; }
+    // A sleeping Space takes up to a minute to wake: keep the demo edition and switch when it answers.
+    if (location.origin === DEFAULT_API) return;
+    try {
+      const ctl = new AbortController();
+      setTimeout(() => ctl.abort(), 90000);
+      const r = await fetch(`${DEFAULT_API}/api/health`, { signal: ctl.signal });
+      const h = r.ok ? await r.json() : null;
+      if (h?.ok && S.api === null) { S.api = DEFAULT_API; S.health = h; setMode(true); toast("The live desk is awake: ask it anything."); }
+    } catch { /* stay in the demo edition */ }
   })();
 })();

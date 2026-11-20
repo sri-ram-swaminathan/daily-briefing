@@ -1,0 +1,11 @@
+.venv/
+.env
+.git/
+__pycache__/
+.pytest_cache/
+liquid-briefing-data/
+news-data/
+state/
+*.sqlite3
+reels/*/shot*
+reels/*/voice.mp3

@@ -115,6 +115,67 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="News Council", lifespan=lifespan)
+
+
+# ---------------------------------------------------------------- rate limits (public deployments)
+class RateLimiter:
+    """Caps the endpoints that spend API credits, per visitor and in total.
+
+    RATE_LIMIT_PER_HOUR (default 40) per client IP, DAILY_LIMIT (default 1500) across everyone.
+    0 disables a limit. In memory: a restart resets the counts, which is fine for a demo Space.
+    """
+
+    COSTLY = ("/api/ask", "/api/council", "/api/reader-briefing", "/api/main-agent", "/ws/session")
+
+    def __init__(self) -> None:
+        import os
+        from collections import deque
+
+        self.per_hour = int(os.getenv("RATE_LIMIT_PER_HOUR", "40"))
+        self.per_day = int(os.getenv("DAILY_LIMIT", "1500"))
+        self._by_ip: dict[str, deque] = {}
+        self._day: deque = deque()
+        self._deque = deque
+
+    @staticmethod
+    def client_ip(headers, client) -> str:
+        fwd = headers.get("x-forwarded-for", "")  # Spaces and most hosts sit behind a proxy
+        return fwd.split(",")[0].strip() if fwd else (client.host if client else "?")
+
+    def allow(self, ip: str) -> str:
+        """'' if allowed, else the reason."""
+        import time
+
+        now = time.time()
+        while self._day and now - self._day[0] > 86400:
+            self._day.popleft()
+        if self.per_day and len(self._day) >= self.per_day:
+            return "This demo has reached its limit for today. Try again tomorrow."
+        hits = self._by_ip.setdefault(ip, self._deque())
+        while hits and now - hits[0] > 3600:
+            hits.popleft()
+        if self.per_hour and len(hits) >= self.per_hour:
+            return "You've asked a lot this hour. Give it a little while and try again."
+        hits.append(now)
+        self._day.append(now)
+        if len(self._by_ip) > 5000:  # forget idle visitors
+            for k in [k for k, v in self._by_ip.items() if not v][:2500]:
+                del self._by_ip[k]
+        return ""
+
+
+limiter = RateLimiter()
+
+
+@app.middleware("http")
+async def rate_limit(request: Request, call_next):
+    if request.method == "POST" and request.url.path in RateLimiter.COSTLY:
+        reason = limiter.allow(RateLimiter.client_ip(request.headers, request.client))
+        if reason:
+            return JSONResponse({"detail": reason}, status_code=429)
+    return await call_next(request)
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[o.strip() for o in settings.cors_origins.split(",") if o.strip()],
@@ -374,6 +435,11 @@ class WSTransport:
 @app.websocket("/ws/session")
 async def session_ws(ws: WebSocket) -> None:
     await ws.accept()
+    reason = limiter.allow(RateLimiter.client_ip(ws.headers, ws.client))
+    if reason:
+        await ws.send_text(json.dumps({"type": "error", "message": reason}))
+        await ws.close()
+        return
     briefing_id = ws.query_params.get("briefing") or next(iter(S.briefings), None)
     briefing = S.briefings.get(briefing_id or "")
     if briefing is None:

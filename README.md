@@ -3,10 +3,9 @@ title: The Daily Briefing
 emoji: 📰
 colorFrom: purple
 colorTo: pink
-sdk: gradio
-sdk_version: 6.32.0
-python_version: "3.12.12"
-app_file: app.py
+sdk: docker
+app_port: 7860
+short_description: Nuanced, personalized, interactive news briefings
 ---
 
 # The Daily Briefing · The News Council
