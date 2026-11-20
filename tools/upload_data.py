@@ -6,7 +6,7 @@
 Uploads, keeping this layout (data_store.py downloads the same paths):
 
     liquid-briefing-data/*.jsonl, README.txt, IDEAS_AND_TIPS.txt
-    news-data/*.jsonl, README.txt
+    news-data/*.jsonl, README.txt                       (only with --include-extra)
     state/council.sqlite3, state/preferences.sqlite3     (if present)
 
 The bucket is created private if it doesn't exist. Nothing here is ever committed to git.
@@ -25,9 +25,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from data_store import DATA_DIRS, STATE_FILES, parse_source  # noqa: E402
 
 
-def stage(src: Path, tmp: Path) -> list[str]:
+def stage(src: Path, tmp: Path, include_extra: bool = False) -> list[str]:
     files = []
-    for d in DATA_DIRS:
+    for d in (DATA_DIRS if include_extra else DATA_DIRS[:1]):
         for f in sorted((src / d).glob("*")):
             if f.suffix in {".jsonl", ".txt"}:
                 (tmp / d).mkdir(parents=True, exist_ok=True)
@@ -46,7 +46,8 @@ def main() -> None:
     ap.add_argument("dest", help="hf://buckets/<owner>/<name> or https://huggingface.co/datasets/<owner>/<name>")
     ap.add_argument("--from", dest="src", type=Path, default=Path(__file__).resolve().parent.parent,
                     help="Folder holding liquid-briefing-data/, news-data/ and the .sqlite3 files")
-    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--dry-run", action="store_true", help="List what would be uploaded")
+    ap.add_argument("--include-extra", action="store_true", help="Also upload news-data/ (our extra feeds)")
     args = ap.parse_args()
     token = os.getenv("HF_TOKEN")
     kind, repo_id, prefix = parse_source(args.dest)
@@ -55,7 +56,7 @@ def main() -> None:
     api = HfApi(token=token)
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
-        files = stage(args.src, tmp)
+        files = stage(args.src, tmp, args.include_extra)
         if not files:
             raise SystemExit(f"Nothing to upload in {args.src}")
         print(f"{len(files)} files from {args.src} -> {args.dest}")
