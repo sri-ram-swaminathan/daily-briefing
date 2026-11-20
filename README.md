@@ -13,6 +13,8 @@ app_file: app.py
 
 **Nuanced. Personalized. Interactive.** Everyone reads the same news. No one reads it the same way.
 
+**Website (demo edition):** https://sri-ram-swaminathan.github.io/daily-briefing/
+
 * **Nuanced**: seven fictional people from very different lives (an epidemiologist, a baker, a
   tenants' organizer, a retired teacher, a delivery rider, an ex-journalist and a philosopher)
   each review every story and back their reaction with a verbatim quote. A neutral moderator sums
