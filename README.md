@@ -182,7 +182,8 @@ tested, ready to switch on later:
 * **Demo edition** (GitHub Pages or any static host): everything comes from `site/data/*.json`,
   exported from the real pipeline. That covers Max's and Lena's briefings with narration and
   sentence-level sources, the council's reactions to 20 dataset stories, recorded research-desk
-  conversations, reels, the link audit and costs.
+  conversations, reels, the newsroom flywheel and costs. Typed questions are answered from the
+  stories on the page.
 * **Live edition**: when the page reaches a server (same origin, `?api=URL`, or the URL box in the
   footer), you can build a briefing for **You**, ask the desk anything, paste a story for the
   council and talk to the voice briefing. Set `CORS_ORIGINS` on the server to your Pages origin.
@@ -190,7 +191,7 @@ tested, ready to switch on later:
 Rebuild the demo data after new council runs:
 
 ```sh
-uv run tools/build_site_data.py      # listeners, claim links, narration, desk Q&A, coverage, links, reels
+uv run tools/build_site_data.py      # listeners, claim links, narration, desk Q&A, reels
 uv run tools/crop_avatars.py         # portraits from img/1-4.png
 ```
 

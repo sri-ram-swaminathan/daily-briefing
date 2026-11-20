@@ -33,8 +33,7 @@
       <a href="#council">The Council</a>
       <a href="#ask">Ask the desk</a>
       <a href="#reels">Reels</a>
-      <a href="#data">Data desk</a>
-      <a href="#newsroom">For newsrooms</a>
+      <a href="#newsroom">Flywheel</a>
     </nav>
   </header>
 
@@ -144,7 +143,7 @@
         <div class="desk-side">
           <p class="smallcaps">Try one</p>
           <div class="suggestions" id="suggestions"></div>
-          <p class="desk-note" id="desk-note">Demo edition: these are real answers recorded from the research desk on 20 November 2026, including its web searches. Connect a server to ask your own.</p>
+          <p class="desk-note" id="desk-note">Demo edition: the replays are real answers recorded from the research desk, web searches included. Typed questions are answered from the stories on this page; the live desk searches the whole dataset and the web.</p>
         </div>
         <div class="chat" id="chat">
           <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
@@ -166,45 +165,28 @@
       <div class="reels" id="reels-grid"></div>
     </section>
 
-    <!-- ============ DATA DESK ============ -->
-    <section id="data" class="section">
-      <header class="section-head">
-        <p class="kicker">Checked, not assumed</p>
-        <h2>The data desk</h2>
-        <p class="dek">Every claim points to an article, so we checked every article's link: a briefing is only as trustworthy as the sources behind it.</p>
-      </header>
-      <div class="data-grid">
-        <div class="data-card">
-          <h3>What the desk can read</h3>
-          <p class="hint" id="coverage-total"></p>
-          <div class="bars" id="coverage-bars"></div>
-          <details class="feeds">
-            <summary>All feeds</summary>
-            <table class="table" id="feeds-table"></table>
-          </details>
-        </div>
-        <div class="data-card">
-          <h3>Link audit</h3>
-          <p class="hint">Every permalink requested twice (Python, then curl), every page title compared with its headline, blocked links retried slowly, and flagged ones checked by a person.</p>
-          <div id="link-summary"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ NEWSROOM ============ -->
+    <!-- ============ NEWSROOM FLYWHEEL ============ -->
     <section id="newsroom" class="section">
       <header class="section-head">
         <p class="kicker">Path to product</p>
-        <h2>A newsroom's day, with a council in it</h2>
+        <h2>The newsroom flywheel</h2>
+        <p class="dek">The council reads each story once, for every listener. Every question a listener asks shows the newsroom what to cover next. The more it's used, the better tomorrow's briefing gets.</p>
       </header>
-      <ol class="timeline" id="timeline">
-        <li><time>05:00</time><div><strong>Feeds land.</strong> Overnight wires, markets and the new topic feeds are deduplicated and indexed.</div></li>
-        <li><time>05:20</time><div><strong>The council reads.</strong> Seven personas review each story once. The cost is shared by every reader.</div></li>
-        <li><time>06:00</time><div><strong>Briefings go out.</strong> Each subscriber's agent picks and voices their stories, plus one angle they'd have missed.</div></li>
-        <li><time>07:30</time><div><strong>Listeners talk back.</strong> Questions go to the research desk, and the desk sees which ones come up most.</div></li>
-        <li><time>12:00</time><div><strong>Reels for social.</strong> The top stories are cut into vertical videos for the channel's TikTok and Shorts.</div></li>
-        <li><time>18:00</time><div><strong>Editors learn.</strong> Which angles people rated "new to me", and which questions the desk couldn't answer, shape tomorrow's coverage.</div></li>
-      </ol>
+      <div class="flywheel" id="flywheel">
+        <div class="fw-wheel">
+          <svg id="fw-svg" viewBox="0 0 600 600" role="group" aria-label="The newsroom flywheel, six steps in a loop"></svg>
+        </div>
+        <div class="fw-side">
+          <article class="fw-card" id="fw-card" aria-live="polite"></article>
+          <div class="fw-controls">
+            <button class="icon-btn fw-btn" id="fw-prev" aria-label="Previous step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
+            <div class="fw-dots" id="fw-dots"></div>
+            <button class="icon-btn fw-btn" id="fw-next" aria-label="Next step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+            <button class="ghost-btn" id="fw-play">Pause</button>
+          </div>
+        </div>
+      </div>
+      <h3 class="cost-title">What it costs</h3>
       <div class="cost-grid" id="cost-grid"></div>
     </section>
   </main>

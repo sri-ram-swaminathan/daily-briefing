@@ -314,7 +314,8 @@ class LocalMainAgent:
             f"COUNCIL PERSPECTIVES:\n{describe(views) or '(none saved for these articles)'}"
         )
         web = self.web_search
-        must_search = bool(set(req.needs) & {"deep_dive", "background", "related"}) or not docs
+        # Dataset first: force a web search only to dig deeper or when the dataset has nothing.
+        must_search = "deep_dive" in req.needs or not docs
         kwargs = {"web_search": "required" if must_search else True} if web else {}
         raw = await self.llm.complete(system=MAIN_SYSTEM, user=user, schema=MAIN_SCHEMA, max_tokens=2500,
                                       timeout=60.0 if web else 40.0, name="research_answer", **kwargs)
@@ -336,6 +337,18 @@ class LocalMainAgent:
             for seg in resp.segments:
                 if not seg.citation_ids:
                     seg.citation_ids = list(web_ids)
+        if not used:
+            # The model drew on an article but didn't tag it: cite retrieved articles whose distinctive
+            # headline words show up in the answer, so dataset facts always carry their source.
+            spoken = set(tokenize(" ".join(s.text for s in resp.segments)))
+            for d in docs:
+                words = {w for w in tokenize(d.headline) if len(w) > 3}
+                if len(words & spoken) >= 2:
+                    used[d.id] = d.citation()
+                if len(used) >= 3:
+                    break
+            if used and resp.segments:
+                resp.segments[0].citation_ids = list(used) + resp.segments[0].citation_ids
         _cap_words(resp.segments, 300 if "deep_dive" in req.needs else 190)
         resp.follow_up = _speakable(resp.follow_up)
         resp.citations = list(used.values()) + [

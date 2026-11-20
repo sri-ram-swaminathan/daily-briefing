@@ -430,29 +430,66 @@
     $("#chat-log").scrollTop = $("#chat-log").scrollHeight;
   }
 
+  // Demo edition (no server): answer from today's stories on this page, honestly and with sources.
+  const STOP = new Set(("what whats happened happen happening with about tell more does did that this from where which there their "
+    + "they them have been will would could should think thinks council people story stories news today latest mean means "
+    + "explain deeper give show know want into going over after before also just really much many some your mine "
+    + "please could anything something who why how are the and was for its has had not but you can get now "
+    + "out one won any all did does wont isnt arent did dont").split(" "));
+  const terms = (text) => (String(text).toLowerCase().match(/[a-z0-9$%.]{3,}/g) || [])
+    .map((w) => w.replace(/[.]+$/, "")).filter((w) => w.length > 2 && !STOP.has(w));
+  const hit = (word, bag) => bag.some((b) => b === word || (word.length > 4 && (b.startsWith(word) || word.startsWith(b))));
+
+  function storyPool() {
+    const byId = {};
+    (S.data.edition?.stories || []).forEach((s) => (byId[s.id] = { ...s }));
+    Object.values(S.data.readers || {}).forEach((r) => (r.stories || []).forEach((s) => {
+      byId[s.id] = { ...(byId[s.id] || {}), ...s, moderator: byId[s.id]?.moderator, reactions: byId[s.id]?.reactions };
+    }));
+    return Object.values(byId).filter((s) => s.headline);
+  }
+
   function offlineAnswer(question) {
-    const words = question.toLowerCase().match(/[a-z0-9]{4,}/g) || [];
-    const pool = [...(S.data.edition?.stories || [])];
-    const scored = pool.map((s) => ({ s, n: words.filter((w) => `${s.headline} ${s.moderator} ${s.topic}`.toLowerCase().includes(w)).length }))
-      .filter((x) => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 3);
+    const q = terms(question);
+    if (!q.length) return { answer: "Ask me about a story on this page, for example: “What happened with Intel?”", citations: [] };
+    const scored = storyPool().map((s) => {
+      const head = terms(s.headline), body = terms(`${s.summary || ""} ${s.moderator || ""} ${s.topic || ""}`);
+      const headHits = q.filter((w) => hit(w, head)).length;
+      return { s, headHits, score: headHits * 3 + q.filter((w) => hit(w, body)).length };
+    }).filter((x) => x.headHits > 0 || x.score >= 3).sort((a, b) => b.score - a.score);
     if (!scored.length) {
-      return { answer: "This demo edition replays recorded answers and can browse the stories the council reviewed. I didn't find one on that. Connect a live server in the footer and I'll search the feeds and the web for you.", citations: [] };
+      return { answer: "That isn't in today's stories on this page. This is the demo edition: it answers from the stories shown here and replays recorded conversations. The live desk searches all 1,740 articles in the dataset, then the web.", citations: [] };
     }
     const lead = scored[0].s;
+    const wantsCouncil = /council|think|react|opinion|people|perspective/i.test(question) && (lead.moderator || lead.reactions?.length);
+    const voices = (lead.reactions || []).slice(0, 3)
+      .map((r) => `${persona(r.reviewer)?.name || r.reviewer}: ${r.observation.split(/(?<=[.!?])\s/)[0]}`).join(" ");
+    const answer = wantsCouncil
+      ? `The council read “${lead.headline}”. ${lead.moderator || voices}`
+      : `${lead.publication} reported this on ${fmtDate(lead.published_at)}: ${lead.summary || lead.moderator || lead.headline}`;
     return {
-      answer: `From the stories the council reviewed: ${lead.moderator || lead.headline}`,
-      follow_up: "For a fresh answer with web search, connect a live server in the footer.",
-      citations: scored.map(({ s }) => ({ publication: s.publication, headline: s.headline, url: s.url })),
+      answer,
+      follow_up: scored.length > 1 ? `Related on this page: ${scored.slice(1, 3).map((x) => x.s.headline).join("; ")}.` : "",
+      citations: scored.slice(0, 3).map(({ s }) => ({ publication: s.publication, headline: s.headline, url: s.url })),
     };
+  }
+
+  function demoQuestions() {
+    const pool = storyPool();
+    const out = [];
+    if (pool.some((s) => /intel/i.test(s.headline))) out.push("What happened with Intel?");
+    if (pool.some((s) => /crypto|bitcoin/i.test(s.headline) && (s.moderator || s.reactions?.length))) out.push("What does the council think about the crypto crash?");
+    if (pool.some((s) => /unemployment/i.test(s.headline))) out.push("Is UK unemployment going up or down?");
+    return out;
   }
 
   function renderSuggestions() {
     const reader = S.data.readers?.[S.reader];
     const recorded = S.data.qa?.[S.reader] || [];
-    const generic = ["What happened in the US midterms?", "Where did that figure come from?", "What does the council think about the Cop31 talks?"];
+    const generic = ["What happened in the US midterms?", "What happened with Intel?", "Why is gold falling?"];
     $("#suggestions").innerHTML = (recorded.length ? `<button class="replay" data-replay="1">▶ Replay ${esc(reader?.name)}'s conversation</button>` : "")
       + recorded.map((t, i) => `<button data-rec="${i}">${esc(t.question)}</button>`).join("")
-      + (S.api !== null ? generic.map((q) => `<button data-q="${esc(q)}">${esc(q)}</button>`).join("") : "");
+      + (S.api !== null ? generic : demoQuestions()).map((q) => `<button data-q="${esc(q)}">${esc(q)}</button>`).join("");
     $("#suggestions").onclick = async (e) => {
       const b = e.target.closest("button");
       if (!b) return;
@@ -486,49 +523,130 @@
       </figure>`).join("");
   }
 
-  // ------------------------------------------------------------------ data desk
-  const TOPIC_COLOR = { markets: "sky", equities: "sky", forex: "sky", finance: "sky", weather: "mint", climate: "sage", energy: "butter", politics: "lavender", midterms: "lavender", sports: "peach", world: "blush", general: "blush" };
-  const ORIGINAL_TOPICS = new Set(["markets", "equities", "forex", "world"]);
-
-  function renderCoverage() {
-    const c = S.data.coverage;
-    if (!c) return;
-    const max = Math.max(...Object.values(c.by_topic));
-    const original = c.feeds.filter((f) => f.original).reduce((n, f) => n + f.articles, 0);
-    const extra = c.total - original;
-    $("#coverage-total").textContent = extra
-      ? `${c.total.toLocaleString("en-US")} articles: ${original.toLocaleString("en-US")} from the Newstex feeds plus ${extra.toLocaleString("en-US")} from ${c.feeds.filter((f) => !f.original).length} extra feeds.`
-      : `${c.total.toLocaleString("en-US")} articles from the six Liquid Briefing feeds (Newstex): the data this demo runs on, and nothing else.`;
-    $("#coverage-bars").innerHTML = Object.entries(c.by_topic).map(([t, n]) => `
-      <div class="bar ${ORIGINAL_TOPICS.has(t) ? "" : "new"}"><span class="lbl">${esc(t)}</span>
-        <span class="track"><span class="fill bg-${TOPIC_COLOR[t] || "paper"}" style="width:${Math.max(2, (n / max) * 100)}%"></span></span>
-        <span class="n">${n}</span></div>`).join("");
-    $("#feeds-table").innerHTML = `<thead><tr><th>Feed</th><th>Outlet</th><th>Topic</th><th>Articles</th></tr></thead><tbody>${c.feeds.map((f) => `
-      <tr><td>${esc(f.feed)}${f.original ? "" : " <span class='chip t-climate'>new</span>"}</td><td>${esc(f.publication)}</td><td>${esc(f.topic)}</td><td class="num">${f.articles}</td></tr>`).join("")}</tbody>`;
+  // ------------------------------------------------------------------ newsroom flywheel
+  // A loop, told one step at a time: the wheel highlights the step, the card tells its story with a
+  // real example from this demo, and a tag says honestly what is built today and what comes next.
+  function flywheelSteps() {
+    const reviewed = (S.data.edition?.stories || []).length;
+    const lenaQ = S.data.qa?.lena?.[0];
+    return [
+      { time: "05:00", title: "Feeds land", short: "Feeds", color: "sky", status: "Working today",
+        body: "Newstex delivers the overnight news. Every article is indexed and duplicates across outlets and languages are merged.",
+        gives: "1,740 articles from six outlets",
+        example: "Invezz, ActionForex, IBTimes UK and Zacks, in English, German and Dutch." },
+      { time: "05:20", title: "The council reads", short: "Council", color: "lavender", status: "Working today",
+        body: "Seven people from very different lives read every story once and react, each backed by a verbatim quote. One read serves every listener, so the cost doesn't grow with the audience.",
+        gives: "Seven perspectives on every story",
+        example: `${reviewed || "Twenty"} of today's stories, reviewed by all seven and quote-checked against the article.` },
+      { time: "06:00", title: "Briefings go out", short: "Briefings", color: "sage", status: "Working today",
+        body: "Each listener's agent picks what matters to them, says why in their terms, links every sentence to its source and voices it. The top stories are also cut into reels for social.",
+        gives: "A personal, sourced audio briefing",
+        example: "Max and Lena both get eurozone inflation: for Max it's the ECB and bond markets, for Lena it's heating bills." },
+      { time: "07:30", title: "Listeners talk back", short: "Talk back", color: "peach", status: "Working today",
+        body: "They interrupt, ask where a number came from, say “go deeper”, skip or replay. The desk answers from the dataset first, then the web, and remembers the conversation.",
+        gives: "Questions, skips and replays",
+        example: lenaQ ? `Lena asked: “${lenaQ.question}” The desk answered from ${lenaQ.citations?.[0]?.publication || "the dataset"}.` : "Listeners ask for sources and context, mid-story." },
+      { time: "All day", title: "Signals pile up", short: "Signals", color: "butter", status: "Partly built",
+        body: "Every question, skip, replay and “new to me” rating says what people want explained, what they ignore, and which angles opened their eyes.",
+        gives: "A live map of what the audience needs",
+        example: "Already recorded: which council angle each listener heard, and whether they rated it new to them." },
+      { time: "18:00", title: "The newsroom learns", short: "Learn", color: "blush", status: "Next",
+        body: "Unanswered questions become tomorrow's explainers, skips and ratings sharpen each listener's picks, and the angles people value guide the council. Better coverage brings more listening, and the wheel turns faster.",
+        gives: "Better coverage tomorrow, so back to step 1",
+        example: "A question the desk couldn't answer from the dataset is a story the newsroom hasn't written yet." },
+    ];
   }
 
-  function renderLinks() {
-    const L = S.data.links || {};
-    const block = (label, key) => {
-      const d = L[key];
-      if (!d) return "";
-      const s = d.summary.by_status || {};
-      return `<div class="audit"><h4>${label} · ${d.summary.total.toLocaleString("en-US")} links · checked ${esc(d.summary.checked_at)} UTC</h4>
-        <div class="tiles">
-          <div class="tile bg-sage"><b>${s.ok || 0}</b><span>verified automatically: right article</span></div>
-          <div class="tile bg-butter"><b>${s.blocked || 0}</b><span>block automated checks, open in a browser</span></div>
-          <div class="tile bg-blush"><b>${(s.broken || 0) + (s.soft_404 || 0) + (s.redirected || 0)}</b><span>broken</span></div>
-        </div></div>`;
+  const FW = { i: 0, playing: true, timer: null, visible: false };
+
+  function renderFlywheel() {
+    const steps = flywheelSteps();
+    const svg = $("#fw-svg");
+    if (!svg) return;
+    const cx = 300, cy = 300, R = 205, r = 50;
+    const pos = (k) => {
+      const a = (-90 + k * (360 / steps.length)) * Math.PI / 180;
+      return [cx + R * Math.cos(a), cy + R * Math.sin(a), a];
     };
-    $("#link-summary").innerHTML = block("Liquid Briefing dataset (Newstex)", "link_check_liquid_briefing_data") + block("Extra topic feeds", "link_check_news_data")
-      + `<p class="finding"><strong>What we found:</strong> every source link works. Invezz looked dead to scripts at first (HTTP 403, even for a made-up URL), but all 406 links opened the right article when checked slowly. Zacks answers automated checks with a bot wall; its links open normally in a browser.</p>`;
+    // arcs between nodes, trimmed so arrowheads stop at the next disc
+    const gap = (r + 10) / R;
+    const arcs = steps.map((_, k) => {
+      const a0 = pos(k)[2] + gap, a1 = pos(k + 1)[2] - gap;
+      const p0 = [cx + R * Math.cos(a0), cy + R * Math.sin(a0)], p1 = [cx + R * Math.cos(a1), cy + R * Math.sin(a1)];
+      return `<path class="fw-arc" data-k="${k}" d="M${p0[0].toFixed(1)} ${p0[1].toFixed(1)} A${R} ${R} 0 0 1 ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}" marker-end="url(#fw-head)"/>`;
+    }).join("");
+    const nodes = steps.map((s, k) => {
+      const [x, y, a] = pos(k);
+      const lx = cx + (R + r + 26) * Math.cos(a), ly = cy + (R + r + 26) * Math.sin(a);
+      const anchor = Math.abs(Math.cos(a)) < 0.2 ? "middle" : Math.cos(a) > 0 ? "start" : "end";
+      return `<g class="fw-node" data-k="${k}" role="button" tabindex="0" aria-label="Step ${k + 1}: ${esc(s.title)}">
+        <circle class="fw-disc fill-${s.color}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}"/>
+        <text class="fw-num" x="${x.toFixed(1)}" y="${(y + 2).toFixed(1)}">${k + 1}</text>
+        <text class="fw-time" x="${x.toFixed(1)}" y="${(y + 24).toFixed(1)}">${esc(s.time)}</text>
+        <text class="fw-label" x="${lx.toFixed(1)}" y="${(ly + 6).toFixed(1)}" text-anchor="${anchor}">${esc(s.short)}</text>
+      </g>`;
+    }).join("");
+    svg.innerHTML = `
+      <defs><marker id="fw-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 10 5 0 10z" class="fw-head"/></marker></defs>
+      <circle class="fw-track" cx="${cx}" cy="${cy}" r="${R}"/>
+      ${arcs}
+      <circle class="fw-runner" r="7"><animateMotion dur="14s" repeatCount="indefinite"
+        path="M${cx} ${cy - R} A${R} ${R} 0 1 1 ${cx - 0.01} ${cy - R}"/></circle>
+      <g class="fw-center">
+        <circle cx="${cx}" cy="${cy}" r="118" class="fw-hub"/>
+        <text x="${cx}" y="${cy - 42}" class="fw-hub-kicker">THE FLYWHEEL</text>
+        <text x="${cx}" y="${cy - 8}" class="fw-hub-line">More listening</text>
+        <text x="${cx}" y="${cy + 20}" class="fw-hub-line">→ sharper signals</text>
+        <text x="${cx}" y="${cy + 48}" class="fw-hub-line">→ better briefings</text>
+      </g>
+      ${nodes}`;
+    $("#fw-dots").innerHTML = steps.map((s, k) => `<button class="fw-dot" data-k="${k}" aria-label="Step ${k + 1}: ${esc(s.title)}"></button>`).join("");
+    const go = (k, user) => {
+      FW.i = (k + steps.length) % steps.length;
+      if (user) setPlaying(false);
+      showFlywheelStep(steps);
+    };
+    svg.onclick = (e) => { const g = e.target.closest(".fw-node"); if (g) go(Number(g.dataset.k), true); };
+    svg.onkeydown = (e) => { const g = e.target.closest(".fw-node"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); go(Number(g.dataset.k), true); } };
+    $("#fw-dots").onclick = (e) => { const b = e.target.closest(".fw-dot"); if (b) go(Number(b.dataset.k), true); };
+    $("#fw-prev").onclick = () => go(FW.i - 1, true);
+    $("#fw-next").onclick = () => go(FW.i + 1, true);
+    $("#fw-play").onclick = () => setPlaying(!FW.playing);
+    const tick = () => { if (FW.playing && FW.visible) go(FW.i + 1, false); };
+    clearInterval(FW.timer);
+    FW.timer = setInterval(tick, 5200);
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) setPlaying(false);
+    new IntersectionObserver((en) => en.forEach((x) => (FW.visible = x.isIntersecting)), { threshold: 0.35 }).observe($("#flywheel"));
+    showFlywheelStep(steps);
+  }
+
+  function setPlaying(on) {
+    FW.playing = on;
+    $("#fw-play").textContent = on ? "Pause" : "Play";
+  }
+
+  function showFlywheelStep(steps) {
+    const s = steps[FW.i], next = steps[(FW.i + 1) % steps.length];
+    document.querySelectorAll(".fw-node").forEach((g) => g.classList.toggle("on", Number(g.dataset.k) === FW.i));
+    document.querySelectorAll(".fw-arc").forEach((p) => p.classList.toggle("on", Number(p.dataset.k) === FW.i));
+    document.querySelectorAll(".fw-dot").forEach((d) => d.setAttribute("aria-current", Number(d.dataset.k) === FW.i ? "step" : "false"));
+    const tag = s.status === "Working today" ? "ok" : s.status === "Partly built" ? "part" : "next";
+    const card = $("#fw-card");
+    card.className = `fw-card bg-${s.color}`;
+    card.innerHTML = `
+      <div class="fw-meta"><span class="fw-step">Step ${FW.i + 1} of ${steps.length} · ${esc(s.time)}</span><span class="fw-tag t-${tag}">${esc(s.status)}</span></div>
+      <h3>${esc(s.title)}</h3>
+      <p>${esc(s.body)}</p>
+      <p class="fw-example"><span class="smallcaps">From this demo</span>${esc(s.example)}</p>
+      <p class="fw-gives"><b>Produces:</b> ${esc(s.gives)} <span class="fw-arrow">→ feeds “${esc(next.title)}”</span></p>`;
   }
 
   function renderCosts() {
     const c = S.data.costs;
     if (!c) return;
     const f = c.full_dataset, t = c.ten_x, day = c.newsroom_day;
-    const usd = (n) => `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const usd = (n) => `$${(Math.round(n * 100 + 1e-6) / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     $("#cost-grid").innerHTML = `
       <div class="cost bg-sage"><span class="smallcaps">Full dataset</span><b>${usd(f.council_as_built)}</b><span>Council reads all ${f.articles.toLocaleString("en-US")} articles once (${usd(f.council_optimised)} with triage and caching).</span></div>
       <div class="cost bg-sky"><span class="smallcaps">At 10x the volume</span><b>${usd(t.council_as_built)}</b><span>${t.articles.toLocaleString("en-US")} articles; linear, ${usd(t.council_optimised)} optimised.</span></div>
@@ -566,7 +684,7 @@
     $("#paste-text").disabled = !live;
     $("#paste-btn").disabled = !live;
     $("#paste-hint").textContent = live ? "Paste a story, a press release or your own summary. Seven people will react, then the moderator sums up." : "Connect a News Council server (see the footer) to hear the council react to text you paste. In this demo edition, pick a story above.";
-    $("#desk-note").textContent = live ? `Live: answers come from the research desk${S.health?.web_search ? " with web search" : ""}, and it remembers this conversation.` : "Demo edition: these are real answers recorded from the research desk on 20 November 2026, including its web searches. Connect a server to ask your own.";
+    $("#desk-note").textContent = live ? `Live: answers come from the research desk${S.health?.web_search ? " with web search" : ""}, and it remembers this conversation.` : "Demo edition: the replays are real answers recorded from the research desk, web searches included. Typed questions are answered from the stories on this page; the live desk searches the whole dataset and the web.";
     $("#api-status").textContent = live ? `Connected to ${S.api || location.origin}.` : "Run `uv run app.py` and open it, or paste its URL here.";
     if (live) renderReaderSwitch();
     renderSuggestions();
@@ -624,7 +742,7 @@
 
   // ------------------------------------------------------------------ boot
   (async () => {
-    const names = ["council", "edition", "readers", "qa", "coverage", "links", "reels", "costs"];
+    const names = ["council", "edition", "readers", "qa", "reels", "costs"];
     const results = await Promise.all(names.map(loadJSON));
     names.forEach((n, i) => (S.data[n] = results[i]));
     if (!S.data.readers?.[S.reader]) S.reader = Object.keys(S.data.readers || {})[0];
@@ -635,8 +753,7 @@
     const first = S.data.readers?.[S.reader]?.stories.find((s) => (S.data.edition?.stories || []).some((e) => e.id === s.id));
     showStory(first?.id || S.data.edition?.stories?.[0]?.id);
     renderReels();
-    renderCoverage();
-    renderLinks();
+    renderFlywheel();
     renderCosts();
     setMode(false);
     addMsg("desk", `<p>Morning. I'm the research desk. Pick a question, or ask me about any story: “where's that from?”, “go deeper”, “what does the council think?”</p>`).classList.add("hello");

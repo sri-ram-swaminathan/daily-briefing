@@ -333,8 +333,6 @@ def main() -> None:
     write("readers.json", readers)
     if not args.skip_qa:
         write("qa.json", asyncio.run(ask_desk(index, readers)))
-    write("coverage.json", coverage(index))
-    write("links.json", links())
     write("reels.json", reels())
 
 
