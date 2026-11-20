@@ -1,0 +1,107 @@
+{
+ "prices": {
+  "gpt-4.1-mini": {
+   "in": 0.4,
+   "cached_in": 0.1,
+   "out": 1.6
+  },
+  "gpt-4.1-nano": {
+   "in": 0.1,
+   "cached_in": 0.025,
+   "out": 0.4
+  },
+  "web_search_call": 0.01,
+  "elevenlabs_per_1k_chars": 0.1,
+  "openai_tts_per_1k_chars": 0.015,
+  "sora2_per_second": 0.1
+ },
+ "dataset": {
+  "liquid-briefing-data": {
+   "articles": 1740,
+   "chars": 9660486
+  },
+  "news-data": {
+   "articles": 416,
+   "chars": 2200743
+  }
+ },
+ "full_dataset": {
+  "articles": 1740,
+  "readers": 2,
+  "tokens_per_article": 1388,
+  "council_as_built": 12.84,
+  "council_optimised": 4.81,
+  "per_reader": {
+   "briefing_selection": 0.0203,
+   "voice_elevenlabs": 0.282,
+   "voice_openai_tts": 0.0423,
+   "research_desk_3_questions": 0.1725,
+   "total": 0.4748
+  },
+  "readers_total": 0.95,
+  "total_as_built": 13.79,
+  "total_optimised": 5.76
+ },
+ "ten_x": {
+  "articles": 17400,
+  "readers": 20,
+  "tokens_per_article": 1388,
+  "council_as_built": 128.37,
+  "council_optimised": 48.1,
+  "per_reader": {
+   "briefing_selection": 0.0203,
+   "voice_elevenlabs": 0.282,
+   "voice_openai_tts": 0.0423,
+   "research_desk_3_questions": 0.1725,
+   "total": 0.4748
+  },
+  "readers_total": 9.5,
+  "total_as_built": 137.87,
+  "total_optimised": 57.6
+ },
+ "newsroom_day": {
+  "articles": 185,
+  "readers": 1000,
+  "tokens_per_article": 1388,
+  "council_as_built": 1.36,
+  "council_optimised": 0.51,
+  "per_reader": {
+   "briefing_selection": 0.0203,
+   "voice_elevenlabs": 0.282,
+   "voice_openai_tts": 0.0423,
+   "research_desk_3_questions": 0.1725,
+   "total": 0.4748
+  },
+  "readers_total": 474.81,
+  "total_as_built": 476.17,
+  "total_optimised": 475.32
+ },
+ "newsroom_day_10x": {
+  "articles": 1850,
+  "readers": 10000,
+  "tokens_per_article": 1388,
+  "council_as_built": 13.65,
+  "council_optimised": 5.11,
+  "per_reader": {
+   "briefing_selection": 0.0203,
+   "voice_elevenlabs": 0.282,
+   "voice_openai_tts": 0.0423,
+   "research_desk_3_questions": 0.1725,
+   "total": 0.4748
+  },
+  "readers_total": 4748.08,
+  "total_as_built": 4761.73,
+  "total_optimised": 4753.19
+ },
+ "reel": {
+  "sora_seconds": 24,
+  "video": 2.4000000000000004,
+  "script_voice": 0.02,
+  "total": 2.42
+ },
+ "notes": [
+  "Token counts from the files at 4 characters per token.",
+  "Prices are list-price assumptions in tools/cost_model.py; edit and rerun.",
+  "Council cost scales with articles; reader cost scales with readers."
+ ]
+}

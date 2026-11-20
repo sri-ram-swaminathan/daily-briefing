@@ -1,0 +1,80 @@
+[
+ {
+  "id": "mira",
+  "name": "Mira",
+  "age": 41,
+  "role": "Epidemiologist",
+  "home": "Big city, one child",
+  "lens": "What's the evidence, compared to what?",
+  "values": "Accuracy, the common good",
+  "blind_spot": "Can sound like a lecturer and underweight lived experience",
+  "color": "sky"
+ },
+ {
+  "id": "tom",
+  "name": "Tom",
+  "age": 54,
+  "role": "Runs a family bakery",
+  "home": "Small town, 8 staff",
+  "lens": "What does it cost, and who pays?",
+  "values": "Hard work, responsibility, security",
+  "blind_spot": "Sees every new rule as a burden",
+  "color": "butter"
+ },
+ {
+  "id": "amara",
+  "name": "Amara",
+  "age": 29,
+  "role": "Tenants' & climate organizer",
+  "home": "Mid-sized city",
+  "lens": "Who benefits, who is harmed, who is missing?",
+  "values": "Fairness, dignity, practical wins",
+  "blind_spot": "Can assume bad intent where there is just complexity",
+  "color": "blush"
+ },
+ {
+  "id": "walter",
+  "name": "Walter",
+  "age": 67,
+  "role": "Retired history teacher",
+  "home": "Village, church, sports club",
+  "lens": "Is this change necessary, and what might we lose?",
+  "values": "Tradition, community, duty",
+  "blind_spot": "Nostalgia; can dismiss young people's problems",
+  "color": "sage"
+ },
+ {
+  "id": "sami",
+  "name": "Sami",
+  "age": 23,
+  "role": "Food-delivery rider, design student",
+  "home": "Shared flat, big city",
+  "lens": "What does this mean for people my age?",
+  "values": "Freedom, loyalty, security they don't have",
+  "blind_spot": "Cynicism; trusts viral takes too fast",
+  "color": "peach",
+  "pronouns": "they/them"
+ },
+ {
+  "id": "vera",
+  "name": "Vera",
+  "age": 48,
+  "role": "Ex-newspaper journalist",
+  "home": "Suburb, freelance",
+  "lens": "Why this story, why now, why framed this way?",
+  "values": "Independence, truth",
+  "blind_spot": "Can treat everything as spin",
+  "color": "lavender"
+ },
+ {
+  "id": "elias",
+  "name": "Elias",
+  "age": 58,
+  "role": "Philosophy teacher",
+  "home": "Runs evening philosophy cafés",
+  "lens": "Which values collide underneath?",
+  "values": "Wisdom, meaning, independent thought",
+  "blind_spot": "Drifts into abstraction",
+  "color": "mint"
+ }
+]

@@ -1,0 +1,130 @@
+{
+ "max": [
+  {
+   "question": "Go deeper on the Nvidia earnings: what are the two questions investors need answered?",
+   "answer": "Nvidia's recent earnings report highlights two critical questions for investors. First, can the company maintain its rapid growth trajectory without founder Jensen Huang at the helm? Second, how will new U.S. export restrictions impact Nvidia's ability to serve Chinese clients, and can it offset potential losses by tapping into other markets? These uncertainties are compounded by Huang's resignation amid personal controversies and ongoing investigations into potential export violations.",
+   "follow_up": "Would you like more details on Nvidia's financial outlook or the impact of leadership changes?",
+   "needs": [
+    "deep_dive"
+   ],
+   "citations": [
+    {
+     "id": "INVZ-10009737-01M7QNB4C561ZWTB5S14DXZCKM",
+     "publication": "Invezz",
+     "headline": "Nvidia earnings: investors still need answers to two key questions",
+     "url": "https://invezz.com/news/2026/11/18/nvidia-earnings-investors-still-need-answers-to-two-key-questions/",
+     "published_at": "2026-11-18T15:44:32+00:00"
+    },
+    {
+     "id": "INVZ-10009737-01M7HKN100QWRFZXPSMS8WWFQ1",
+     "publication": "Invezz",
+     "headline": "Nvidia stock faces a new Jensen Huang crisis as Elon Musk enters the fight",
+     "url": "https://invezz.com/news/2026/11/16/nvidia-stock-faces-a-new-jensen-huang-crisis-as-elon-musk-enters-the-fight/",
+     "published_at": "2026-11-16T07:16:47+00:00"
+    },
+    {
+     "id": "web-1",
+     "publication": "investor.nvidia.com",
+     "headline": "investor.nvidia.com",
+     "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx?utm_source=openai",
+     "published_at": "",
+     "web": true
+    },
+    {
+     "id": "web-2",
+     "publication": "nvidianews.nvidia.com",
+     "headline": "nvidianews.nvidia.com",
+     "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027?trk=article-ssr-frontend-pulse_little-text-block&utm_source=openai",
+     "published_at": "",
+     "web": true
+    },
+    {
+     "id": "web-3",
+     "publication": "nvidianews.nvidia.com",
+     "headline": "nvidianews.nvidia.com",
+     "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026?utm_source=openai",
+     "published_at": "",
+     "web": true
+    },
+    {
+     "id": "web-4",
+     "publication": "investor.nvidia.com",
+     "headline": "investor.nvidia.com",
+     "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/?utm_source=openai",
+     "published_at": "",
+     "web": true
+    }
+   ],
+   "during": "Nvidia earnings: investors still need answers to two key questions"
+  },
+  {
+   "question": "And what happened when they actually reported?",
+   "answer": "When Nvidia reported its fiscal Q3 earnings, the company more than doubled its revenue to nearly $116 billion and issued strong future guidance. However, the quarter ended before CEO Jensen Huang resigned, so the results largely reflect orders secured under his leadership. The new interim CEO Colette Kress acknowledged ongoing demand from key cloud customers, but the real test is whether Nvidia can continue winning large future orders and delivering new chips on schedule without Huang. Investors remain cautious, as any delay or lost order could affect earnings and share prices. There is also uncertainty about the impact of tighter U.S. export rules to China, which previously benefited from chip usage via Singapore data centers. Nvidia made about 9.5% of its quarterly sales from direct Chinese customers, so how the company can replace or offset this demand is still unclear.",
+   "follow_up": "Would you like me to explore how Nvidia plans to navigate these U.S.-China trade restrictions going forward?",
+   "needs": [],
+   "citations": [
+    {
+     "id": "INVZ-10009737-01M7QNB4C561ZWTB5S14DXZCKM",
+     "publication": "Invezz",
+     "headline": "Nvidia earnings: investors still need answers to two key questions",
+     "url": "https://invezz.com/news/2026/11/18/nvidia-earnings-investors-still-need-answers-to-two-key-questions/",
+     "published_at": "2026-11-18T15:44:32+00:00"
+    }
+   ],
+   "during": "Nvidia earnings: investors still need answers to two key questions"
+  }
+ ],
+ "lena": [
+  {
+   "question": "Where does that figure on young people out of work come from?",
+   "answer": "The figure of nearly one million young people in the UK classified as NEETs, meaning not in employment, education, or training, comes from official government data in the second quarter of 2026. The report cited by the International Business Times UK states this counts 981,000 people aged 16 to 24, about one in eight young people. This data underpins calls for major reforms in welfare, apprenticeships, and employment support to tackle the UK's rising youth inactivity.",
+   "follow_up": "Would you like more details on the report's proposed reforms for NEETs?",
+   "needs": [],
+   "citations": [
+    {
+     "id": "IBTU-10010345-01M7QZNEZQG7NB3TRBHJ2Z63TP",
+     "publication": "International Business Times UK",
+     "headline": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training",
+     "url": "https://www.ibtimes.co.uk/uk-welfare-reforms-neets-youth-inactivity-1833222",
+     "published_at": "2026-11-18T15:05:33+00:00"
+    }
+   ],
+   "during": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training"
+  },
+  {
+   "question": "Go deeper: is anyone actually doing something about it?",
+   "answer": "Yes, the UK government is actively addressing the issue of youth unemployment. In August 2026, the Jobs Guarantee scheme began offering fully funded, six-month job placements to young people aged 18 to 24 who have been claiming Universal Credit and seeking work for 18 months. This initiative aims to provide a direct route into employment for those furthest from the job market. Additionally, in November 2026, the government expanded this scheme to guarantee a fully funded, six-month job for every eligible 18 to 24-year-old in Great Britain claiming Universal Credit and looking for work. This expansion is part of a broader effort to support over 90,000 young people into employment. Furthermore, the government has invested £1 billion to create 200,000 jobs for young people and transform apprenticeships over the next decade. This includes new foundation apprenticeships in hospitality and retail, with up to £2,000 available for employers to support 16 to 21-year-olds into work.",
+   "follow_up": "Would you like more details on any of these initiatives?",
+   "needs": [
+    "deep_dive"
+   ],
+   "citations": [
+    {
+     "id": "web-1",
+     "publication": "gov.uk",
+     "headline": "Government's Jobs Guarantee turns promise into paycheques for young people - GOV.UK",
+     "url": "https://www.gov.uk/government/news/governments-jobs-guarantee-turns-promise-into-paycheques-for-young-people?utm_source=openai",
+     "published_at": "",
+     "web": true
+    },
+    {
+     "id": "web-2",
+     "publication": "gov.uk",
+     "headline": "90,000 young people furthest from work to be given guaranteed job, no matter where they live - GOV.UK",
+     "url": "https://www.gov.uk/government/news/90000-young-people-furthest-from-work-to-be-given-guaranteed-job-no-matter-where-they-live?utm_source=openai",
+     "published_at": "",
+     "web": true
+    },
+    {
+     "id": "web-3",
+     "publication": "gov.uk",
+     "headline": "Major employment drive to help unlock 200,000 new jobs and apprenticeships for next generation - GOV.UK",
+     "url": "https://www.gov.uk/government/news/major-employment-drive-to-help-unlock-200000-new-jobs-and-apprenticeships-for-next-generation?utm_source=openai",
+     "published_at": "",
+     "web": true
+    }
+   ],
+   "during": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training"
+  }
+ ]
+}

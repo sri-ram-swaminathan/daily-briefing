@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The News Council</title>
+  <meta name="description" content="Everyone reads the same news. No one reads it the same way. A nuanced, personalized and interactive news briefing with a council of seven very different people.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#briefing">Skip to your briefing</a>
+
+  <header class="masthead">
+    <div class="ears">
+      <div class="ear ear-left">
+        <span class="smallcaps">Nuanced</span> · <span class="smallcaps">Personalized</span> · <span class="smallcaps">Interactive</span>
+      </div>
+      <div class="ear ear-right"><span id="mode-pill" class="pill pill-demo" title="How this page gets its answers">Demo edition</span></div>
+    </div>
+    <h1 class="title"><a href="#top" id="top">The News Council</a></h1>
+    <div class="dateline">
+      <span>Vol. I · No. 1</span>
+      <span id="dateline-date">Maastricht, Friday 20 November 2026</span>
+      <span>Seven perspectives · One story</span>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#front">Front page</a>
+      <a href="#briefing">Your briefing</a>
+      <a href="#council">The Council</a>
+      <a href="#ask">Ask the desk</a>
+      <a href="#reels">Reels</a>
+      <a href="#data">Data desk</a>
+      <a href="#newsroom">For newsrooms</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ FRONT PAGE ============ -->
+    <section id="front" class="front">
+      <p class="kicker">Our promise</p>
+      <h2 class="lead-headline">Everyone reads the same news.<br><em>No one reads it the same way.</em></h2>
+      <p class="standfirst">The News Council reads every story through the eyes of seven very different people, picks out what matters to <em>you</em>, and lets you talk back. Ask for sources, dig deeper, skip ahead, go back, and it remembers where you left off.</p>
+      <div class="pillars">
+        <article class="pillar tint-lavender">
+          <h3><span class="num">I.</span> Nuanced</h3>
+          <p class="dropcap">A baker, an epidemiologist, a delivery rider, a retired teacher, an organizer, a former journalist and a philosopher read the same story and notice different things. Stepping into someone else's shoes shows you angles you would have scrolled past.</p>
+          <a class="more" href="#council">Meet the council →</a>
+        </article>
+        <article class="pillar tint-sage">
+          <h3><span class="num">II.</span> Personalized</h3>
+          <p class="dropcap">A rates trader and a student wake up to the same world but need different mornings. The briefing picks the stories that matter to you, explains why they matter to you, and adds one angle you would not have looked for.</p>
+          <a class="more" href="#briefing">Compare Max and Lena →</a>
+        </article>
+        <article class="pillar tint-peach">
+          <h3><span class="num">III.</span> Interactive</h3>
+          <p class="dropcap">Newspapers and broadcasts are fixed once they're out. This one listens. Interrupt it, ask "where's that from?", say "go deeper", jump to the next story or back. It searches the feeds and the web, cites its sources, and never tells you the same thing twice.</p>
+          <a class="more" href="#ask">Talk to the desk →</a>
+        </article>
+      </div>
+      <aside class="handin" aria-label="Working prototype checklist">
+        <p class="kicker">Working prototype · check it yourself</p>
+        <ol>
+          <li><b>Audio briefings generated from the dataset.</b> Both briefings are picked and written from the Liquid Briefing feeds, then voiced. <button class="ghost-btn" data-go="play">▶ Play Max's briefing</button></li>
+          <li><b>Two clearly different listener profiles.</b> A rates trader and a student get different stories, and different reasons the shared ones matter. <button class="ghost-btn" data-go="compare">Compare them</button></li>
+          <li><b>Each claim linked to its source article.</b> Every sentence ends in a marker that opens the article's own words, checked verbatim, with a link. <button class="ghost-btn" data-go="evidence">See the evidence</button></li>
+        </ol>
+      </aside>
+    </section>
+
+    <!-- ============ YOUR BRIEFING ============ -->
+    <section id="briefing" class="section">
+      <header class="section-head">
+        <p class="kicker">II · Personalized</p>
+        <h2>Two readers, two mornings</h2>
+        <p class="dek">Same newsroom, same council, same hour. Pick a reader to see and hear the briefing the agent built for them from their own interests.</p>
+      </header>
+
+      <div class="reader-switch" role="tablist" aria-label="Choose a reader" id="reader-switch"></div>
+
+      <div class="briefing-layout">
+        <aside class="reader-card" id="reader-card" aria-live="polite"></aside>
+        <div class="briefing-main">
+          <div class="player" id="player">
+            <button class="icon-btn" id="prev-btn" aria-label="Previous story" title="Previous story">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+            </button>
+            <button class="play-btn" id="play-btn" aria-label="Play briefing">
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+            </button>
+            <button class="icon-btn" id="next-btn" aria-label="Next story" title="Next story">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>
+            </button>
+            <div class="player-meta">
+              <div class="player-now" id="player-now">Press play for your briefing</div>
+              <div class="progress"><span id="progress-bar"></span></div>
+            </div>
+            <a class="player-src" id="player-src" target="_blank" rel="noopener" hidden></a>
+            <a class="live-voice" id="live-voice" hidden>Talk to it live ↗</a>
+          </div>
+          <ol class="stories" id="stories"></ol>
+          <button class="ghost-btn" id="compare-btn">Show Max and Lena side by side</button>
+          <div class="compare" id="compare" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE COUNCIL ============ -->
+    <section id="council" class="section">
+      <header class="section-head">
+        <p class="kicker">I · Nuanced</p>
+        <h2>The Council</h2>
+        <p class="dek">Seven fictional people, written from real ways of seeing the world. Each one reads every story on their own, picks one thing that matters to them, and backs it with a short quote from the article. A neutral moderator sums up where they split, without saying who's right.</p>
+      </header>
+      <div class="portraits" id="portraits"></div>
+
+      <div class="story-picker">
+        <label for="story-select" class="smallcaps">Read a story through their eyes</label>
+        <div class="select-wrap"><select id="story-select"></select></div>
+        <div class="topic-chips" id="topic-chips" role="group" aria-label="Filter by topic"></div>
+      </div>
+      <article class="reactions-panel" id="reactions" aria-live="polite"></article>
+
+      <div class="paste-box" id="paste-box">
+        <h3>Paste any story</h3>
+        <p class="hint" id="paste-hint">Connect a News Council server (see the footer) to hear the council react to text you paste. In this demo edition, pick a story above.</p>
+        <textarea id="paste-text" rows="4" placeholder="Paste a news story or a few paragraphs…" disabled></textarea>
+        <button class="solid-btn" id="paste-btn" disabled>Convene the council</button>
+      </div>
+    </section>
+
+    <!-- ============ ASK THE DESK ============ -->
+    <section id="ask" class="section">
+      <header class="section-head">
+        <p class="kicker">III · Interactive</p>
+        <h2>Ask the desk</h2>
+        <p class="dek">Interrupt the briefing with a question. The research desk searches the newsroom's feeds first, then the web, cites every source, and remembers the conversation, so "go deeper" goes deeper instead of starting over.</p>
+      </header>
+      <div class="desk">
+        <div class="desk-side">
+          <p class="smallcaps">Try one</p>
+          <div class="suggestions" id="suggestions"></div>
+          <p class="desk-note" id="desk-note">Demo edition: these are real answers recorded from the research desk on 20 November 2026, including its web searches. Connect a server to ask your own.</p>
+        </div>
+        <div class="chat" id="chat">
+          <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
+          <form class="chat-form" id="chat-form">
+            <input id="chat-input" type="text" autocomplete="off" placeholder="Ask about any story, or say “go deeper”…" aria-label="Your question">
+            <button class="solid-btn" type="submit">Ask</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REELS ============ -->
+    <section id="reels" class="section">
+      <header class="section-head">
+        <p class="kicker">Beyond audio</p>
+        <h2>Reels for the scroll</h2>
+        <p class="dek">The same agent writes and produces short vertical videos for TikTok, Reels and Shorts, one per audience. Visuals by Sora, voice by OpenAI TTS, captions and the source credit burned in. No article text, no real faces.</p>
+      </header>
+      <div class="reels" id="reels-grid"></div>
+    </section>
+
+    <!-- ============ DATA DESK ============ -->
+    <section id="data" class="section">
+      <header class="section-head">
+        <p class="kicker">Checked, not assumed</p>
+        <h2>The data desk</h2>
+        <p class="dek">Every claim points to an article, so we checked every article's link: a briefing is only as trustworthy as the sources behind it.</p>
+      </header>
+      <div class="data-grid">
+        <div class="data-card">
+          <h3>What the desk can read</h3>
+          <p class="hint" id="coverage-total"></p>
+          <div class="bars" id="coverage-bars"></div>
+          <details class="feeds">
+            <summary>All feeds</summary>
+            <table class="table" id="feeds-table"></table>
+          </details>
+        </div>
+        <div class="data-card">
+          <h3>Link audit</h3>
+          <p class="hint">Every permalink requested twice (Python, then curl), every page title compared with its headline, blocked links retried slowly, and flagged ones checked by a person.</p>
+          <div id="link-summary"></div>
+        </div>
+      </div>
+      <div class="data-card wide">
+        <div class="table-head">
+          <h3>Links that didn't check out</h3>
+          <input id="link-filter" type="search" placeholder="Filter by feed or headline…" aria-label="Filter links">
+        </div>
+        <div class="table-wrap"><table class="table" id="links-table"></table></div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSROOM ============ -->
+    <section id="newsroom" class="section">
+      <header class="section-head">
+        <p class="kicker">Path to product</p>
+        <h2>A newsroom's day, with a council in it</h2>
+      </header>
+      <ol class="timeline" id="timeline">
+        <li><time>05:00</time><div><strong>Feeds land.</strong> Overnight wires, markets and the new topic feeds are deduplicated and indexed.</div></li>
+        <li><time>05:20</time><div><strong>The council reads.</strong> Seven personas review each story once. The cost is shared by every reader.</div></li>
+        <li><time>06:00</time><div><strong>Briefings go out.</strong> Each subscriber's agent picks and voices their stories, plus one angle they'd have missed.</div></li>
+        <li><time>07:30</time><div><strong>Listeners talk back.</strong> Questions go to the research desk, and the desk sees which ones come up most.</div></li>
+        <li><time>12:00</time><div><strong>Reels for social.</strong> The top stories are cut into vertical videos for the channel's TikTok and Shorts.</div></li>
+        <li><time>18:00</time><div><strong>Editors learn.</strong> Which angles people rated "new to me", and which questions the desk couldn't answer, shape tomorrow's coverage.</div></li>
+      </ol>
+      <div class="cost-grid" id="cost-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-cols">
+      <div>
+        <p class="footer-title">The News Council</p>
+        <p>Built at the MAIN AI Hackathon, Maastricht, 20–21 November 2026. Council personas are fictional. Article text stays with its publishers: we show headlines, our own summaries, short attributed quotes and links.</p>
+      </div>
+      <div>
+        <p class="smallcaps">Live server</p>
+        <form id="api-form" class="api-form">
+          <input id="api-input" type="url" placeholder="https://your-news-council-server" aria-label="Server URL">
+          <button class="ghost-btn" type="submit">Connect</button>
+        </form>
+        <p class="hint" id="api-status">Run <code>uv run app.py</code> and open it, or paste its URL here.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

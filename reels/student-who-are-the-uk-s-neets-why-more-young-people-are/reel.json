@@ -1,0 +1,39 @@
+{
+  "audience": "student",
+  "article": {
+    "id": "IBTU-10010345-01M7QZNEZQG7NB3TRBHJ2Z63TP",
+    "publication": "International Business Times UK",
+    "headline": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training",
+    "url": "https://www.ibtimes.co.uk/uk-welfare-reforms-neets-youth-inactivity-1833222",
+    "published_at": "2026-11-18T15:05:33+00:00",
+    "topic": "world"
+  },
+  "plan": {
+    "title": "UK NEETs: What It Means for Students",
+    "hook": "Nearly 1 Million UK Youth Not Working",
+    "voiceover": "The International Business Times UK reports that nearly one million young people aged 16 to 24 in the UK are neither working, studying, nor training. That's about one in eight young people — a big deal if you're juggling rent and exams. The government plans new reforms in welfare and apprenticeships to tackle this, but changes may take years. Keep an eye on how this might affect job opportunities near you in the coming months.",
+    "shots": [
+      {
+        "prompt": "A photorealistic vertical 9:16 b-roll shot of a crowded city bus during morning rush hour. The camera moves slowly from front to back, capturing anonymous young commuters with backpacks, some staring out the window. The lighting is soft morning light with slight overcast, evoking a mood of quiet determination and daily grind. Ambient sounds include muffled city traffic and bus engine hum."
+      },
+      {
+        "prompt": "A vertical 9:16 cinematic b-roll showing an urban employment center lobby. The camera gently pans across empty seats, pamphlets about apprenticeships and jobs scattered on a table, and a wall-mounted digital screen displaying generic numbers and icons (no text). The lighting is cool and natural, with an atmosphere mixing hopefulness and uncertainty. Background noise includes faint murmurs and soft footfalls."
+      }
+    ],
+    "post_caption": "Almost a million young Brits are currently not in education, employment, or training. The government is considering big reforms, but results may be slow. Stay informed and prepare for shifts in job and apprenticeship availability this year. Source: International Business Times UK.",
+    "hashtags": [
+      "uknews",
+      "students",
+      "neets",
+      "jobs",
+      "education"
+    ]
+  },
+  "video_model": "gpt-image-2 (still + zoom)",
+  "created_at": "2026-11-20T21:54:04Z",
+  "duration_s": 24.0,
+  "cost_usd": {
+    "video": 0.12,
+    "script_and_voice": 0.02
+  }
+}

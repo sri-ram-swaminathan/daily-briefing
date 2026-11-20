@@ -1,0 +1,52 @@
+[
+ {
+  "slug": "finance-gold-price-falls-as-fed-hike-odds-jump-and-gld-i",
+  "audience": "finance",
+  "article": {
+   "id": "INVZ-10009737-01M7S6HVMZNMT6VWPPSRXTQS1D",
+   "publication": "Invezz",
+   "headline": "Gold price falls as Fed hike odds jump and GLD, IAU ETF outflows surge",
+   "url": "https://invezz.com/news/2026/11/19/gold-price-falls-as-fed-hike-odds-jump-and-gld-iau-etf-outflows-surge/",
+   "published_at": "2026-11-19T06:05:05+00:00",
+   "topic": "markets"
+  },
+  "hook": "Gold slides as rate hike looms",
+  "caption": "Gold faced selling pressure as Fed rate hike odds hit 99%, with ETFs seeing significant outflows. Stay tuned for key inflation data and the December Fed meeting. Source: Invezz",
+  "hashtags": [
+   "gold",
+   "fedrate",
+   "markets",
+   "etfs",
+   "inflation"
+  ],
+  "video_model": "gpt-image-2 (still + zoom)",
+  "duration_s": 24.0,
+  "video": "reels/finance-gold-price-falls-as-fed-hike-odds-jump-and-gld-i/reel.mp4",
+  "poster": "reels/finance-gold-price-falls-as-fed-hike-odds-jump-and-gld-i/poster.jpg"
+ },
+ {
+  "slug": "student-who-are-the-uk-s-neets-why-more-young-people-are",
+  "audience": "student",
+  "article": {
+   "id": "IBTU-10010345-01M7QZNEZQG7NB3TRBHJ2Z63TP",
+   "publication": "International Business Times UK",
+   "headline": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training",
+   "url": "https://www.ibtimes.co.uk/uk-welfare-reforms-neets-youth-inactivity-1833222",
+   "published_at": "2026-11-18T15:05:33+00:00",
+   "topic": "world"
+  },
+  "hook": "Nearly 1 Million UK Youth Not Working",
+  "caption": "Almost a million young Brits are currently not in education, employment, or training. The government is considering big reforms, but results may be slow. Stay informed and prepare for shifts in job and apprenticeship availability this year. Source: International Business Times UK.",
+  "hashtags": [
+   "uknews",
+   "students",
+   "neets",
+   "jobs",
+   "education"
+  ],
+  "video_model": "gpt-image-2 (still + zoom)",
+  "duration_s": 24.0,
+  "video": "reels/student-who-are-the-uk-s-neets-why-more-young-people-are/reel.mp4",
+  "poster": "reels/student-who-are-the-uk-s-neets-why-more-young-people-are/poster.jpg"
+ }
+]

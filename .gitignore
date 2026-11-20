@@ -1,0 +1,33 @@
+__pycache__/
+/.venv/
+# Data never enters this repository: it is synced from a private Hugging Face bucket (data_store.py).
+/liquid-briefing-data/
+/news-data/
+/state/
+/.cache/
+/council.sqlite3
+# Data never enters this repository: it is synced from a private Hugging Face bucket (data_store.py).
+/liquid-briefing-data/
+/news-data/
+/state/
+/.cache/
+/council.sqlite3-*
+/preferences.sqlite3
+/preferences.sqlite3-*
+dass_news.egg-info/dependency_links.txt
+dass_news.egg-info/PKG-INFO
+dass_news.egg-info/requires.txt
+dass_news.egg-info/SOURCES.txt
+dass_news.egg-info/top_level.txt
+*.pyc
+.pytest_cache/
+.env
+/briefings/*
+!/briefings/sample-*.json
+
+# reels.py intermediates (the finished reel.mp4 and poster are exported to site/reels/)
+/reels/*/*
+!/reels/*/reel.json
+/reels/_*.log
+# run logs from tools/
+/data_quality/_*.log

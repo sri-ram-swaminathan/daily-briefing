@@ -1,0 +1,20 @@
+# The main briefing agent selects stories and additional perspectives.
+main_agent: gpt-4.1-mini
+
+# Live voice briefing: the turn router runs on every interruption, so keep it fast.
+# The research desk answers follow-up questions. Both fall back to main_agent if removed.
+voice_router: gpt-4.1-mini
+research_desk: gpt-4.1-mini
+
+# Used for custom personas without an entry below.
+default_persona: gpt-4.1-mini
+
+council:
+  amara: gpt-4.1-mini
+  elias: gpt-4.1-mini
+  mira: gpt-4.1-mini
+  sami: gpt-4.1-mini
+  tom: gpt-4.1-mini
+  vera: gpt-4.1-mini
+  walter: gpt-4.1-mini
+  moderator: gpt-4.1-mini

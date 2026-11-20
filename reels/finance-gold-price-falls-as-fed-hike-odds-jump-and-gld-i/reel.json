@@ -1,0 +1,39 @@
+{
+  "audience": "finance",
+  "article": {
+    "id": "INVZ-10009737-01M7S6HVMZNMT6VWPPSRXTQS1D",
+    "publication": "Invezz",
+    "headline": "Gold price falls as Fed hike odds jump and GLD, IAU ETF outflows surge",
+    "url": "https://invezz.com/news/2026/11/19/gold-price-falls-as-fed-hike-odds-jump-and-gld-iau-etf-outflows-surge/",
+    "published_at": "2026-11-19T06:05:05+00:00",
+    "topic": "markets"
+  },
+  "plan": {
+    "title": "Gold Price Dips Amid Fed Hike Bets",
+    "hook": "Gold slides as rate hike looms",
+    "voiceover": "Invezz reports gold slipped to $3,728 as bets on a Federal Reserve rate hike soared past 99%. Gold ETFs shed over $1.37 billion in the last month, signaling investor pullback. Watch for the December Fed decision and upcoming nonfarm payrolls—they’ll dictate gold’s next move and market risk appetite.",
+    "shots": [
+      {
+        "prompt": "Vertical 9:16 cinematic b-roll of a dimly lit trading floor with digital price tickers showing fluctuating gold prices and interest rates; camera slowly pans across empty desks and glowing monitors, evoking tension and anticipation; ambient sounds include soft keyboard clicks and distant murmurs of a closed market."
+      },
+      {
+        "prompt": "Vertical 9:16 photorealistic scene of a sleek desk with a hand scrolling through financial charts on a tablet, showing gold ETF outflows and rising bond yields; soft natural morning light filters through blinds casting stripes; subtle background hum of a city waking up, reinforcing market watchfulness."
+      }
+    ],
+    "post_caption": "Gold faced selling pressure as Fed rate hike odds hit 99%, with ETFs seeing significant outflows. Stay tuned for key inflation data and the December Fed meeting. Source: Invezz",
+    "hashtags": [
+      "gold",
+      "fedrate",
+      "markets",
+      "etfs",
+      "inflation"
+    ]
+  },
+  "video_model": "gpt-image-2 (still + zoom)",
+  "created_at": "2026-11-20T21:01:40Z",
+  "duration_s": 24.0,
+  "cost_usd": {
+    "video": 0.12,
+    "script_and_voice": 0.02
+  }
+}

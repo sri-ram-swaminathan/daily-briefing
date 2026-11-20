@@ -1,0 +1,24 @@
+{
+  "_about": "Human verdicts on links the script flagged. tools/check_links.py applies them by URL after every run (--apply-reviews to re-apply without re-requesting). status: ok | broken | blocked.",
+  "reviewed_at": "2026-11-20",
+  "reviews": {
+    "https://www.bbc.co.uk/news/articles/cmwy5de1177yo?at_medium=RSS&at_campaign=rss": {
+      "status": "ok", "note": "Works. BBC retitled the story (\"Stanlow refinery: Essar to pay £873k over wastewater breaches\")."
+    },
+    "https://www.bbc.co.uk/sport/tennis/articles/cvze7d03880ko?at_medium=RSS&at_campaign=rss": {
+      "status": "ok", "note": "Works. BBC retitled the story (\"Leon Smith: Great Britain's Davis Cup-winning captain stepping down\")."
+    },
+    "https://electrek.co/2026/11/19/musk-tesla-model-y-no-steering-wheel-7-seat/": {
+      "status": "ok", "note": "Works. Electrek retitled the story."
+    },
+    "https://www.eia.gov/todayinenergy/detail.php?id=": {
+      "status": "broken", "note": "EIA's RSS item has an empty article id, so the link opens the generic Today in Energy page, not the story."
+    }
+  },
+  "hosts": {
+    "www.zacks.com": {
+      "status": "blocked",
+      "note": "Imperva bot wall (\"Pardon Our Interruption\") for every automated client, including made-up URLs, so script checks can't tell live from dead. Spot-check in a browser."
+    }
+  }
+}

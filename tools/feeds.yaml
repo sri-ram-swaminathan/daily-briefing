@@ -1,0 +1,163 @@
+# Extra topic feeds for tools/fetch_feeds.py, written to news-data/<name>.jsonl.
+# newstex_id values starting with X are ours (these outlets are not part of the Newstex delivery).
+feeds:
+  # ---------------- Weather ----------------
+  - name: guardian_weather
+    topic: weather
+    section: Weather
+    url: https://www.theguardian.com/uk/weather/rss
+    skip: "/live/|crossword"
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+  - name: guardian_extreme_weather
+    topic: weather
+    section: Extreme weather
+    url: https://www.theguardian.com/world/extreme-weather/rss
+    skip: "/live/"
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+  - name: severe_weather_europe
+    topic: weather
+    section: Forecasts
+    url: https://severe-weather.eu/feed/
+    pub_type: Weblog
+    publication: {name: Severe Weather Europe, publisher: Severe Weather Europe, newstex_id: X0102, code: SWEU-X0102, url: https://severe-weather.eu, country: EU}
+
+  # ---------------- Climate change ----------------
+  - name: guardian_climate
+    topic: climate
+    section: Climate crisis
+    url: https://www.theguardian.com/environment/climate-crisis/rss
+    skip: "/live/"
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+  - name: inside_climate_news
+    topic: climate
+    section: Climate
+    url: https://insideclimatenews.org/feed/
+    region: US
+    publication: {name: Inside Climate News, publisher: Inside Climate News, newstex_id: X0201, code: ICNW-X0201, url: https://insideclimatenews.org, country: USA}
+  - name: yale_climate_connections
+    topic: climate
+    section: Climate
+    url: https://yaleclimateconnections.org/feed/
+    region: US
+    publication: {name: Yale Climate Connections, publisher: Yale Center for Environmental Communication, newstex_id: X0202, code: YCCN-X0202, url: https://yaleclimateconnections.org, country: USA}
+  - name: bbc_science_environment
+    topic: climate
+    section: Science & Environment
+    url: https://feeds.bbci.co.uk/news/science_and_environment/rss.xml
+    skip: "/videos?/|/av/|/sounds/"
+    publication: {name: BBC News, publisher: BBC, newstex_id: X0001, code: BBCN-X0001, url: https://www.bbc.co.uk/news, country: UK}
+
+  # ---------------- Sports ----------------
+  - name: bbc_sport
+    topic: sports
+    section: Sport
+    url: https://feeds.bbci.co.uk/sport/rss.xml
+    skip: "/live/|/videos?/|/av/|/sounds/"
+    publication: {name: BBC Sport, publisher: BBC, newstex_id: X0002, code: BBCS-X0002, url: https://www.bbc.co.uk/sport, country: UK}
+  - name: espn
+    topic: sports
+    section: Top Headlines
+    url: https://www.espn.com/espn/rss/news
+    user_agent: Mozilla/5.0  # ESPN's CDN answers 202/empty to full browser strings
+    skip: "/video/"
+    region: US
+    publication: {name: ESPN, publisher: ESPN, newstex_id: X0301, code: ESPN-X0301, url: https://www.espn.com, country: USA}
+  - name: guardian_sport
+    topic: sports
+    section: Sport
+    url: https://www.theguardian.com/sport/rss
+    skip: "/live/"
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+
+  # ---------------- Politics ----------------
+  - name: bbc_politics
+    topic: politics
+    section: UK Politics
+    url: https://feeds.bbci.co.uk/news/politics/rss.xml
+    skip: "/live/|/videos?/|/av/|/sounds/"
+    publication: {name: BBC News, publisher: BBC, newstex_id: X0001, code: BBCN-X0001, url: https://www.bbc.co.uk/news, country: UK}
+  - name: npr_politics
+    topic: politics
+    section: Politics
+    url: https://feeds.npr.org/1014/rss.xml
+    region: US
+    publication: {name: NPR, publisher: National Public Radio, newstex_id: X0401, code: NPRN-X0401, url: https://www.npr.org, country: USA}
+  - name: guardian_us_politics
+    topic: politics
+    section: US politics
+    url: https://www.theguardian.com/us-news/us-politics/rss
+    skip: "/live/"
+    region: US
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+
+  # ---------------- Midterm elections (US, November 2026) ----------------
+  - name: guardian_midterms_2026
+    topic: midterms
+    section: US midterm elections 2026
+    url: https://www.theguardian.com/us-news/us-midterm-elections-2026/rss
+    skip: "/live/"
+    region: US
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+  - name: npr_elections
+    topic: midterms
+    section: Elections
+    url: https://feeds.npr.org/1001/rss.xml
+    must_match: "midterm|election|ballot|voter|recount|house seat|senate race|governor|redistrict|runoff"
+    region: US
+    publication: {name: NPR, publisher: National Public Radio, newstex_id: X0401, code: NPRN-X0401, url: https://www.npr.org, country: USA}
+
+  # ---------------- Finance ----------------
+  - name: federal_reserve
+    topic: finance
+    section: Press releases
+    url: https://www.federalreserve.gov/feeds/press_all.xml
+    pub_type: Government
+    region: US
+    publication: {name: Federal Reserve Board, publisher: Board of Governors of the Federal Reserve System, newstex_id: X0501, code: FRB0-X0501, url: https://www.federalreserve.gov, country: USA}
+  - name: ecb_press
+    topic: finance
+    section: Press
+    url: https://www.ecb.europa.eu/rss/press.html
+    pub_type: Government
+    publication: {name: European Central Bank, publisher: European Central Bank, newstex_id: X0502, code: ECB0-X0502, url: https://www.ecb.europa.eu, country: EU}
+  - name: bbc_business
+    topic: finance
+    section: Business
+    url: https://feeds.bbci.co.uk/news/business/rss.xml
+    skip: "/live/|/videos?/|/av/|/sounds/"
+    publication: {name: BBC News, publisher: BBC, newstex_id: X0001, code: BBCN-X0001, url: https://www.bbc.co.uk/news, country: UK}
+  - name: cnbc_finance
+    topic: finance
+    section: Finance
+    url: https://www.cnbc.com/id/10000664/device/rss/rss.html
+    skip: "/video/"
+    region: US
+    publication: {name: CNBC, publisher: NBCUniversal, newstex_id: X0503, code: CNBC-X0503, url: https://www.cnbc.com, country: USA}
+
+  # ---------------- Energy ----------------
+  - name: eia_today_in_energy
+    topic: energy
+    section: Today in Energy
+    url: https://www.eia.gov/rss/todayinenergy.xml
+    pub_type: Government
+    region: US
+    publication: {name: U.S. Energy Information Administration, publisher: U.S. Department of Energy, newstex_id: X0601, code: EIA0-X0601, url: https://www.eia.gov, country: USA}
+  - name: guardian_energy
+    topic: energy
+    section: Energy
+    url: https://www.theguardian.com/environment/energy/rss
+    skip: "/live/"
+    publication: {name: The Guardian, publisher: Guardian News & Media, newstex_id: X0101, code: GUAR-X0101, url: https://www.theguardian.com, country: UK}
+  - name: utility_dive
+    topic: energy
+    section: Utilities
+    url: https://www.utilitydive.com/feeds/news/
+    region: US
+    publication: {name: Utility Dive, publisher: Industry Dive, newstex_id: X0602, code: UTDV-X0602, url: https://www.utilitydive.com, country: USA}
+  - name: electrek
+    topic: energy
+    section: Clean energy
+    url: https://electrek.co/feed/
+    pub_type: Weblog
+    region: US
+    publication: {name: Electrek, publisher: 9to5Mac Media, newstex_id: X0603, code: ELEK-X0603, url: https://electrek.co, country: USA}

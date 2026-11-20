@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Briefing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/voice/static/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Live Briefing</span>
+    </div>
+    <select id="briefing-select" aria-label="Choose briefing"></select>
+  </header>
+
+  <main class="layout">
+    <section class="stage">
+      <div class="headline">
+        <p class="eyebrow" id="briefing-date"></p>
+        <h1 id="briefing-title">Loading…</h1>
+        <p class="listener" id="briefing-listener"></p>
+      </div>
+
+      <div class="orb-wrap">
+        <button id="orb" class="orb" data-state="idle" aria-label="Start briefing">
+          <span class="ring"></span><span class="core"></span>
+        </button>
+        <p id="state-label" class="state-label">Tap to start</p>
+      </div>
+
+      <div class="controls">
+        <button id="ptt" class="pill primary" title="Hold to talk (or hold the space bar)">Hold to talk</button>
+        <button data-control="pause" class="pill">Pause</button>
+        <button data-control="resume" class="pill">Resume</button>
+        <button data-control="skip" class="pill">Skip story</button>
+        <label class="toggle" title="Interrupt just by speaking. Headphones recommended.">
+          <input type="checkbox" id="handsfree" checked /> Hands-free
+        </label>
+      </div>
+
+      <form id="ask" class="ask">
+        <input id="ask-input" type="text" placeholder="Or type a question: “how did this develop?”" autocomplete="off" />
+        <button class="pill" type="submit">Ask</button>
+      </form>
+
+      <p class="hint" id="hint">Interrupt any time, just start talking. Ask for sources, background, or “take me back to last week”.</p>
+    </section>
+
+    <section class="feed" aria-live="polite">
+      <div id="caption" class="caption"></div>
+      <div id="log" class="log"></div>
+    </section>
+
+    <aside class="sources">
+      <h2>Sources</h2>
+      <div id="sources"></div>
+      <h2 class="research-h">Research desk</h2>
+      <div id="research"><p class="muted">Questions the narrator couldn't answer appear here.</p></div>
+    </aside>
+  </main>
+
+  <script src="/voice/static/app.js" type="module"></script>
+</body>
+</html>

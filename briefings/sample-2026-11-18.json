@@ -1,0 +1,89 @@
+{
+  "id": "sample-2026-11-18",
+  "title": "Tech and markets, Wednesday morning",
+  "date": "2026-11-18T07:00:00+00:00",
+  "language": "en",
+  "listener": "Retail investor with a tech-heavy portfolio, about five minutes, plain English",
+  "delivery": {
+    "tone": "warm, relaxed, conversational",
+    "style": "Like a friend who follows the markets closely. Plain words, no jargon, name the outlet when giving a figure. Never sensational.",
+    "pace": 1.0
+  },
+  "intro": "Good morning. Here's what's moving in tech and markets today. Three stories: Nvidia's leadership crisis, a lawsuit landing on Intel, and the latest US inflation numbers.",
+  "segments": [
+    {
+      "id": "nvidia-leadership",
+      "title": "Nvidia's leadership crisis",
+      "tone": "serious, calm",
+      "text": "First, Nvidia. A week after Jensen Huang stepped down as chief executive, the company is still being run by its finance chief, Colette Kress, on an interim basis, according to IBTimes UK. The shares took a hit. Invezz reported a fall of 4.3 percent on the day the resignation came out, and more losses the day after. Then, on Tuesday, Huang put out his first public statement since leaving. Invezz reports that he took responsibility for what he called his personal mistakes, said he'd cooperate with the board's independent investigation, and left the door open to coming back if the board thinks that's best for the company. So the big question now is whether the board looks outside for a permanent leader, or brings him back.",
+      "citations": [
+        {
+          "id": "IBTU-10010345-01M7BK47PM92PYW9CKQEPJK342",
+          "publication": "International Business Times UK",
+          "headline": "Jensen Huang Once Called Colette Kress a 'Deer in the Headlights'. Now She's Nvidia's Interim CEO",
+          "url": "https://www.ibtimes.co.uk/nvidia-colette-kress-interim-ceo-jensen-huang-resigns-1832164",
+          "published_at": "2026-11-13T20:24:35+00:00"
+        },
+        {
+          "id": "INVZ-10009737-01M7B730C0GX01MNNZ7QEWY8FX",
+          "publication": "Invezz",
+          "headline": "Nvidia stock outlook: Can shares recover after Jensen Huang's exit?",
+          "url": "https://invezz.com/news/2026/11/13/nvidia-stock-outlook-can-shares-recover-after-jensen-huangs-exit/",
+          "published_at": "2026-11-13T19:43:05+00:00"
+        },
+        {
+          "id": "INVZ-10009737-01M7N83B6HGJSN8P6PRG6ZJBNJ",
+          "publication": "Invezz",
+          "headline": "Jensen Huang keeps door open to return as Nvidia CEO in first statement since exit",
+          "url": "https://invezz.com/news/2026/11/17/jensen-huang-keeps-door-open-to-return-as-nvidia-ceo-in-first-statement-since-exit/",
+          "published_at": "2026-11-17T17:11:46+00:00"
+        }
+      ]
+    },
+    {
+      "id": "intel-lawsuit",
+      "title": "the Intel lawsuit",
+      "tone": "neutral, measured",
+      "text": "Next, Intel. The chipmaker is facing a proposed class action from shareholders. Both Invezz and IBTimes UK report that the suit claims executives played down weakening PC demand before Intel raised 23 billion dollars in a share sale in August. It names the chief executive, Lip-Bu Tan, and the finance chief, David Zinsner. That comes on top of a rough few weeks for the stock. Invezz says the shares collapsed by 28.6 percent on October 30th, and on Tuesday they slipped again after a filing showed Nvidia had cut its stake in Intel by a quarter.",
+      "citations": [
+        {
+          "id": "INVZ-10009737-01M7HXNFGVTSR4PFBV3VDMT1PA",
+          "publication": "Invezz",
+          "headline": "Intel stock faces fraud lawsuit over $23 billion share sale after 29% crash",
+          "url": "https://invezz.com/news/2026/11/16/intel-stock-faces-fraud-lawsuit-over-23-billion-share-sale-after-29-crash/",
+          "published_at": "2026-11-16T10:12:19+00:00"
+        },
+        {
+          "id": "IBTU-10010345-01M7JNQ6RA505ZSJND1Q5P6DB9",
+          "publication": "International Business Times UK",
+          "headline": "Intel Hit With Shareholder Lawsuit After 29% Stock Plunge as Investors Allege Company Hid a PC Sales Problem",
+          "url": "https://www.ibtimes.co.uk/intel-lawsuit-alleged-pc-sales-share-offering-1832497",
+          "published_at": "2026-11-16T16:47:04+00:00"
+        },
+        {
+          "id": "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2",
+          "publication": "Invezz",
+          "headline": "Why is Intel stock falling on Tuesday?",
+          "url": "https://invezz.com/news/2026/11/17/why-is-intel-stock-falling-on-tuesday/",
+          "published_at": "2026-11-17T15:04:57+00:00"
+        }
+      ]
+    },
+    {
+      "id": "us-ppi",
+      "title": "US producer prices",
+      "tone": "calm, explanatory",
+      "text": "Finally, inflation. US producer prices rose 0.3 percent in October, according to ActionForex, citing the Bureau of Labor Statistics. That's a big slowdown from September, which was revised up to 1.4 percent, and a little under what markets expected. But the yearly rate actually ticked up, from 6.3 to 6.5 percent. In plain terms: prices at the factory gate rose more slowly last month, but, as ActionForex puts it, the underlying pressure is still firm.",
+      "citations": [
+        {
+          "id": "ACTI-10010414-01M7AP8WCVYF7JHMQF5AF5PSKQ",
+          "publication": "ActionForex",
+          "headline": "US PPI Slows Sharply to 0.3%, but Underlying Price Pressures Stay Firm",
+          "url": "https://www.actionforex.com/live-comments/660801-us-ppi-slows-sharply-to-0-3-but-underlying-price-pressures-stay-firm/",
+          "published_at": "2026-11-13T13:38:25+00:00"
+        }
+      ]
+    }
+  ],
+  "outro": "That's your briefing for this morning. If you want the backstory on any of it, or the sources, just ask."
+}

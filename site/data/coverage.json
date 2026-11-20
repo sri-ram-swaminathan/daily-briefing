@@ -1,0 +1,53 @@
+{
+ "total": 1740,
+ "by_topic": {
+  "equities": 1000,
+  "markets": 406,
+  "world": 298,
+  "forex": 36
+ },
+ "feeds": [
+  {
+   "feed": "zacks",
+   "publication": "Zacks Investment Research",
+   "topic": "equities",
+   "articles": 1000,
+   "original": true
+  },
+  {
+   "feed": "actionforex",
+   "publication": "ActionForex",
+   "topic": "forex",
+   "articles": 36,
+   "original": true
+  },
+  {
+   "feed": "invezz_de",
+   "publication": "Invezz - German",
+   "topic": "markets",
+   "articles": 120,
+   "original": true
+  },
+  {
+   "feed": "invezz_en",
+   "publication": "Invezz",
+   "topic": "markets",
+   "articles": 166,
+   "original": true
+  },
+  {
+   "feed": "invezz_nl",
+   "publication": "Invezz - Dutch",
+   "topic": "markets",
+   "articles": 120,
+   "original": true
+  },
+  {
+   "feed": "ibtimes_uk",
+   "publication": "International Business Times UK",
+   "topic": "world",
+   "articles": 298,
+   "original": true
+  }
+ ]
+}

@@ -1,0 +1,510 @@
+{
+ "max": {
+  "name": "Max",
+  "age": 31,
+  "avatar": "assets/people/max.png",
+  "role": "Rates trader in Frankfurt",
+  "tagline": "Up at 5:40, two screens before coffee. Wants the trade, not the think-piece.",
+  "voice_style": "Confident, crisp and quick, like a sharp morning markets desk. Numbers land clearly.",
+  "interests": "I trade rates and macro. I follow the Fed and the ECB, US inflation prints like PPI and CPI, gold, oil and natural gas, big tech earnings such as Nvidia and Intel, crypto, and anything that moves the dollar or European bonds. Give me the market-relevant angle and what to watch. Skip celebrity gossip, sports, weather, lifestyle, local UK housing policy and human-interest stories.",
+  "questions": [
+   "Go deeper on the Nvidia earnings: what are the two questions investors need answered?",
+   "And what happened when they actually reported?"
+  ],
+  "stories": [
+   {
+    "id": "INVZ-10009737-01M7S6HVMZNMT6VWPPSRXTQS1D",
+    "headline": "Gold price falls as Fed hike odds jump and GLD, IAU ETF outflows surge",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/19/gold-price-falls-as-fed-hike-odds-jump-and-gld-iau-etf-outflows-surge/",
+    "published_at": "2026-11-19T06:05:05+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "Gold prices have fallen sharply as investors increasingly expect the Federal Reserve to raise interest rates at its next meeting, causing large outflows from major gold exchange-traded funds like the SPDR Gold ETF. This drop reflects the reduced appeal of gold as a non-yielding asset amid rising bond yields now above 5 percent. However, central banks continue to accumulate gold, maintaining its role as a strategic hedge despite shifting market sentiment, signaling potential volatility and complex market dynamics ahead to watch closely.",
+    "claims": [
+     {
+      "text": "Gold prices have fallen sharply as investors increasingly expect the Federal Reserve to raise interest rates at its next meeting, causing large outflows from major gold exchange-traded funds like the SPDR Gold ETF.",
+      "kind": "fact",
+      "quote": "Gold price remained under pressure on Thursday as investors bet that the Federal Reserve will raise interest rates at its next meeting.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This drop reflects the reduced appeal of gold as a non-yielding asset amid rising bond yields now above 5 percent.",
+      "kind": "fact",
+      "quote": "Gold has also dropped amid elevated bond yields. The ten-year yield crossed the important resistance level of 5% and has remained above it in the past few weeks. Short-term yields have also continued rising, making gold less attractive.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "However, central banks continue to accumulate gold, maintaining its role as a strategic hedge despite shifting market sentiment, signaling potential volatility and complex market dynamics ahead to watch closely.",
+      "kind": "fact",
+      "quote": "On the positive side, central banks have continued to accumulate gold this year. The most active ones are from China, Uzbekistan, and Poland. In total, central banks have bought 170 tons of gold, which are currently worth about $21 billion.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Gold prices have fallen sharply as investors increasingly expect the Federal Reserve to raise interest rates at its next meeting, causing large outflows from major gold exchange-traded funds like the SPDR Gold ETF. This drop reflects the reduced appeal of gold as a non-yielding asset amid rising bond yields now above 5 percent. However, central banks continue to accumulate gold, maintaining its role as a strategic hedge despite shifting market sentiment, signaling potential volatility and complex market dynamics ahead to watch closely."
+   },
+   {
+    "id": "INVZ-10009737-01M7QNB4C561ZWTB5S14DXZCKM",
+    "headline": "Nvidia earnings: investors still need answers to two key questions",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/18/nvidia-earnings-investors-still-need-answers-to-two-key-questions/",
+    "published_at": "2026-11-18T15:44:32+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "Nvidia has reported a record quarterly revenue along with an optimistic outlook. However, key uncertainties remain around whether Nvidia can maintain its chip delivery schedule and secure major orders without its longtime CEO Jensen Huang. Additionally, new US export restrictions may reduce Chinese demand, raising questions about the company's ability to replace lost sales and sustain growth, which is critical for investors tracking tech sector risks and global geopolitical impacts on markets.",
+    "claims": [
+     {
+      "text": "Nvidia has reported a record quarterly revenue along with an optimistic outlook.",
+      "kind": "fact",
+      "quote": "Nvidia (NVDA) more than doubled its quarterly revenue to nearly $116 billion in its fiscal Q3 and issued impressive guidance for the future as well.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "However, key uncertainties remain around whether Nvidia can maintain its chip delivery schedule and secure major orders without its longtime CEO Jensen Huang.",
+      "kind": "fact",
+      "quote": "Two questions matter for that bet: Can Nvidia keep delivering new chips on schedule and winning big orders without Jensen Huang?",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Additionally, new US export restrictions may reduce Chinese demand, raising questions about the company's ability to replace lost sales and sustain growth, which is critical for investors tracking tech sector risks and global geopolitical impacts on markets.",
+      "kind": "fact",
+      "quote": "If tighter US rules choke off Chinese demand served through Singapore, can it turn those same chips into just as much profit somewhere else?",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Nvidia has reported a record quarterly revenue along with an optimistic outlook. However, key uncertainties remain around whether Nvidia can maintain its chip delivery schedule and secure major orders without its longtime CEO Jensen Huang. Additionally, new US export restrictions may reduce Chinese demand, raising questions about the company's ability to replace lost sales and sustain growth, which is critical for investors tracking tech sector risks and global geopolitical impacts on markets."
+   },
+   {
+    "id": "ACTI-10010414-01M7QZ4F3HY6BPE904ZYM3719P",
+    "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+    "publication": "ActionForex",
+    "url": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/",
+    "published_at": "2026-11-18T11:20:57+00:00",
+    "topic": "forex",
+    "feed": "actionforex",
+    "summary": "Eurozone inflation rose to four percent in October two thousand twenty-six, driven mainly by surging energy prices. Core inflation excluding volatile items also nudged higher to two point six percent, indicating persistent underlying price pressures. This uneven inflation increase across member states poses challenges for the European Central Bank's monetary policy and could impact European bond markets.",
+    "claims": [
+     {
+      "text": "Eurozone inflation rose to four percent in October two thousand twenty-six, driven mainly by surging energy prices.",
+      "kind": "fact",
+      "quote": "Eurozone annual HICP inflation accelerated from 3.8% to 4.0% in October, confirming the flash estimate, according to Eurostat’s final release.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Core inflation excluding volatile items also nudged higher to two point six percent, indicating persistent underlying price pressures.",
+      "kind": "fact",
+      "quote": "The upward revision to core inflation nevertheless indicates slightly firmer underlying price pressures than initially reported.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This uneven inflation increase across member states poses challenges for the European Central Bank's monetary policy and could impact European bond markets.",
+      "kind": "context",
+      "quote": "The figures underline the uneven distribution of price pressures across Europe.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Eurozone inflation rose to four percent in October two thousand twenty-six, driven mainly by surging energy prices. Core inflation excluding volatile items also nudged higher to two point six percent, indicating persistent underlying price pressures. This uneven inflation increase across member states poses challenges for the European Central Bank's monetary policy and could impact European bond markets."
+   },
+   {
+    "id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+    "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+    "published_at": "2026-11-17T07:12:53+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "Brent crude oil prices have fallen toward ninety dollars a barrel due to increased oil exports from the Middle East and weakening demand, especially from China. The International Energy Agency expects global oil production to exceed demand by about 1.7 million barrels a day in the fourth quarter, creating a supply surplus that pressures prices downward. Despite this, ongoing geopolitical risks around the Strait of Hormuz keep the market vulnerable to volatility, making oil price movements a key factor to watch for impacts on inflation and energy costs.",
+    "claims": [
+     {
+      "text": "Brent crude oil prices have fallen toward ninety dollars a barrel due to increased oil exports from the Middle East and weakening demand, especially from China.",
+      "kind": "fact",
+      "quote": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent crude closer to $90 a barrel",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "The International Energy Agency expects global oil production to exceed demand by about 1.7 million barrels a day in the fourth quarter, creating a supply surplus that pressures prices downward.",
+      "kind": "fact",
+      "quote": "The IEA expects global oil production to exceed demand by about 1.7 million barrels a day during the fourth quarter, reversing its earlier forecast of a deficit.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Despite this, ongoing geopolitical risks around the Strait of Hormuz keep the market vulnerable to volatility, making oil price movements a key factor to watch for impacts on inflation and energy costs.",
+      "kind": "fact",
+      "quote": "Tanker attacks and uncertainty over the Strait of Hormuz continue to threaten shipments, while traders remain alert to further disruptions.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Brent crude oil prices have fallen toward ninety dollars a barrel due to increased oil exports from the Middle East and weakening demand, especially from China. The International Energy Agency expects global oil production to exceed demand by about 1.7 million barrels a day in the fourth quarter, creating a supply surplus that pressures prices downward. Despite this, ongoing geopolitical risks around the Strait of Hormuz keep the market vulnerable to volatility, making oil price movements a key factor to watch for impacts on inflation and energy costs."
+   },
+   {
+    "id": "INVZ-10009737-01M7HXNFGVTSR4PFBV3VDMT1PA",
+    "headline": "Intel stock faces fraud lawsuit over $23 billion share sale after 29% crash",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/16/intel-stock-faces-fraud-lawsuit-over-23-billion-share-sale-after-29-crash/",
+    "published_at": "2026-11-16T10:12:19+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "Intel is facing a shareholder lawsuit alleging executives hid worsening personal computer demand before raising 23 billion dollars in a share offering in August. This share sale was priced at 95 dollars a share but was soon followed by a nearly 29 percent stock crash, raising concerns about management transparency. Investors should watch how this legal challenge evolves as it could affect Intel's turnaround prospects and market confidence in big tech. vera notes the article lacks perspectives from Intel's defense or independent analysts, which would clarify the uncertainty around management's adequacy in warning investors amid volatile market conditions.",
+    "claims": [
+     {
+      "text": "Intel is facing a shareholder lawsuit alleging executives hid worsening personal computer demand before raising 23 billion dollars in a share offering in August.",
+      "kind": "fact",
+      "quote": "Intel faces a shareholder lawsuit alleging that executives concealed worsening personal computer demand before the chipmaker raised $23 billion in an August share offering",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This share sale was priced at 95 dollars a share but was soon followed by a nearly 29 percent stock crash, raising concerns about management transparency.",
+      "kind": "fact",
+      "quote": "Intel stock (NASDAQ: INTC) closed Friday at $59.66, far below the offering price of $95.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Investors should watch how this legal challenge evolves as it could affect Intel's turnaround prospects and market confidence in big tech.",
+      "kind": "context",
+      "quote": "The lawsuit places Intel's disclosures alongside its operational recovery on investors' list of concerns.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "vera notes the article lacks perspectives from Intel's defense or independent analysts, which would clarify the uncertainty around management's adequacy in warning investors amid volatile market conditions.",
+      "kind": "council",
+      "quote": "The lawsuit places Intel's disclosures alongside its operational recovery on investors' list of concerns. At Friday's close, shares were about 37% below August's offering price, despite remaining roughly 62% higher for the year.",
+      "verified": true,
+      "reviewer": "vera",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Intel is facing a shareholder lawsuit alleging executives hid worsening personal computer demand before raising 23 billion dollars in a share offering in August. This share sale was priced at 95 dollars a share but was soon followed by a nearly 29 percent stock crash, raising concerns about management transparency. Investors should watch how this legal challenge evolves as it could affect Intel's turnaround prospects and market confidence in big tech. vera notes the article lacks perspectives from Intel's defense or independent analysts, which would clarify the uncertainty around management's adequacy in warning investors amid volatile market conditions."
+   },
+   {
+    "id": "INVZ-10009737-01M7HCG4HCM59CJSFXBFCVW2VS",
+    "headline": "Crypto crash: Reasons Bitcoin, altcoins are falling as the Fear and Greed Index sinks",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/16/crypto-crash-reasons-bitcoin-altcoins-are-falling-as-the-fear-and-greed-index-sinks/",
+    "published_at": "2026-11-16T05:12:10+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "The crypto market has crashed again, with Bitcoin and most altcoins hitting their lowest levels in months. This comes as the Crypto Fear and Greed Index fell to an extreme fear zone at 12, reflecting investor panic amid rising US bond yields and concerns about Federal Reserve rate hikes. Traders should watch the interplay between rising yields, ETF outflows, and technical indicators signaling further declines, as these factors are driving risk aversion and could impact broader markets including the dollar and European bonds.",
+    "claims": [
+     {
+      "text": "The crypto market has crashed again, with Bitcoin and most altcoins hitting their lowest levels in months.",
+      "kind": "fact",
+      "quote": "The crypto crash continued during the weekend, with Bitcoin and most altcoins plunging to their lowest levels in months.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This comes as the Crypto Fear and Greed Index fell to an extreme fear zone at 12, reflecting investor panic amid rising US bond yields and concerns about Federal Reserve rate hikes.",
+      "kind": "fact",
+      "quote": "It dropped to the extreme fear zone of 12 during the weekend, its lowest level in months.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Traders should watch the interplay between rising yields, ETF outflows, and technical indicators signaling further declines, as these factors are driving risk aversion and could impact broader markets including the dollar and European bonds.",
+      "kind": "context",
+      "quote": "Therefore, there is a risk that it will continue falling, which will lead to more downside in the crypto industry.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "The crypto market has crashed again, with Bitcoin and most altcoins hitting their lowest levels in months. This comes as the Crypto Fear and Greed Index fell to an extreme fear zone at 12, reflecting investor panic amid rising US bond yields and concerns about Federal Reserve rate hikes. Traders should watch the interplay between rising yields, ETF outflows, and technical indicators signaling further declines, as these factors are driving risk aversion and could impact broader markets including the dollar and European bonds."
+   }
+  ],
+  "audio": [
+   "audio/max/0.mp3",
+   "audio/max/1.mp3",
+   "audio/max/2.mp3",
+   "audio/max/3.mp3",
+   "audio/max/4.mp3",
+   "audio/max/5.mp3",
+   "audio/max/6.mp3"
+  ]
+ },
+ "lena": {
+  "name": "Lena",
+  "age": 21,
+  "avatar": "assets/people/lena.png",
+  "role": "Second-year geography student",
+  "tagline": "Bike, then the 7:52 train. Rent, exams, a part-time job and a planet to worry about.",
+  "voice_style": "Warm, friendly and a little wry, like a smart older friend on the walk to class.",
+  "interests": "I'm a university student. I care about public transport, trains and travel disruption, storms and weather on my commute, rent, housing and energy bills, jobs and pay for young people, universities, schools and exams, climate change and politics that affects young people. Skip stock tips, earnings previews, crypto trading, celebrity gossip, and market data such as producer prices, gas inventories or central-bank speeches unless the story says how it changes bills, rent or jobs for ordinary people.",
+  "questions": [
+   "Why are so many young people in the UK out of work right now?",
+   "Go deeper: is anyone actually doing something about it?"
+  ],
+  "stories": [
+   {
+    "id": "IBTU-10010345-01M7QZNEZQG7NB3TRBHJ2Z63TP",
+    "headline": "Who Are the UK's NEETs? Why More Young People Are Now Out of Work, Education and Training",
+    "publication": "International Business Times UK",
+    "url": "https://www.ibtimes.co.uk/uk-welfare-reforms-neets-youth-inactivity-1833222",
+    "published_at": "2026-11-18T15:05:33+00:00",
+    "topic": "world",
+    "feed": "ibtimes_uk",
+    "summary": "Nearly one million young people in the UK are currently not in employment, education, or training, a group known as NEETs. The government is proposing a decade-long plan involving welfare reform, increased apprenticeships, and mental health support to reduce youth inactivity and provide better job opportunities. This effort matters because mental health challenges and lack of experience are significant barriers for young people trying to enter the workforce or education.",
+    "claims": [
+     {
+      "text": "Nearly one million young people in the UK are currently not in employment, education, or training, a group known as NEETs.",
+      "kind": "fact",
+      "quote": "Nearly a million young people in the UK are currently not in employment, education or training, known as NEETs.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "The government is proposing a decade-long plan involving welfare reform, increased apprenticeships, and mental health support to reduce youth inactivity and provide better job opportunities.",
+      "kind": "fact",
+      "quote": "Milburn said the government should aim to reduce the NEET rate to 5 per cent over a 10-year period. This could be achieved by combining better mental health support, increased apprenticeship opportunities and greater incentives for employers to recruit younger workers.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This effort matters because mental health challenges and lack of experience are significant barriers for young people trying to enter the workforce or education.",
+      "kind": "fact",
+      "quote": "The BBC reported on the experiences of young people who are not in employment, education or training, highlighting barriers including mental health difficulties, limited work experience and a lack of suitable opportunities.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Nearly one million young people in the UK are currently not in employment, education, or training, a group known as NEETs. The government is proposing a decade-long plan involving welfare reform, increased apprenticeships, and mental health support to reduce youth inactivity and provide better job opportunities. This effort matters because mental health challenges and lack of experience are significant barriers for young people trying to enter the workforce or education."
+   },
+   {
+    "id": "ACTI-10010414-01M7QZ4F3HY6BPE904ZYM3719P",
+    "headline": "Eurozone Inflation Confirmed at 4.0% as Energy Surges, Core CPI Revised Higher",
+    "publication": "ActionForex",
+    "url": "https://www.actionforex.com/live-comments/661283-eurozone-inflation-confirmed-at-4-0-as-energy-surges-core-cpi-revised-higher/",
+    "published_at": "2026-11-18T11:20:57+00:00",
+    "topic": "forex",
+    "feed": "actionforex",
+    "summary": "Eurozone inflation rose to four percent in October twenty twenty-six, mainly due to surging energy prices. This means that costs like heating and electricity are hitting households harder, which is especially important for students and young people managing rent and bills. The inflation increase varies widely among member states, reflecting uneven economic pressures across Europe and affecting affordability differently depending on where you live.",
+    "claims": [
+     {
+      "text": "Eurozone inflation rose to four percent in October twenty twenty-six, mainly due to surging energy prices.",
+      "kind": "fact",
+      "quote": "Eurozone annual HICP inflation accelerated from 3.8% to 4.0% in October, confirming the flash estimate, according to Eurostat’s final release.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This means that costs like heating and electricity are hitting households harder, which is especially important for students and young people managing rent and bills.",
+      "kind": "context",
+      "quote": "Energy remained the dominant driver of the headline acceleration, with annual price growth rising from a revised 19.0% to 21.0%, above the flash estimate of 20.8%.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "The inflation increase varies widely among member states, reflecting uneven economic pressures across Europe and affecting affordability differently depending on where you live.",
+      "kind": "fact",
+      "quote": "",
+      "verified": false,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Eurozone inflation rose to four percent in October twenty twenty-six, mainly due to surging energy prices. This means that costs like heating and electricity are hitting households harder, which is especially important for students and young people managing rent and bills. The inflation increase varies widely among member states, reflecting uneven economic pressures across Europe and affecting affordability differently depending on where you live."
+   },
+   {
+    "id": "ACTI-10010414-01M7MDV00J3W5Y8PRCFVGQ8BXP",
+    "headline": "UK Unemployment Falls to 4.6%, but Payroll Losses and Weaker Hiring Tell Different Story",
+    "publication": "ActionForex",
+    "url": "https://www.actionforex.com/live-comments/661129-uk-unemployment-falls-to-4-6-but-payroll-losses-and-weaker-hiring-tell-different-story/",
+    "published_at": "2026-11-17T07:17:16+00:00",
+    "topic": "forex",
+    "feed": "actionforex",
+    "summary": "UK unemployment has fallen slightly to four point six percent, but this just partly reflects changes in how the data was collected rather than real job growth. At the same time, fewer people are on payrolls and small businesses are seeing fewer job vacancies while wage increases are slowing. This signals that job opportunities and pay, especially for young workers and small employers, are under pressure despite the headline numbers. Tom highlights how the weakening job market especially for small businesses like his local bakery makes hiring and retaining workers harder amid high costs and slowing wage growth.",
+    "claims": [
+     {
+      "text": "UK unemployment has fallen slightly to four point six percent, but this just partly reflects changes in how the data was collected rather than real job growth.",
+      "kind": "fact",
+      "quote": "However, the improvement in headline unemployment was partly driven by changes in the Labour Force Survey sample rather than stronger underlying labour demand.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "At the same time, fewer people are on payrolls and small businesses are seeing fewer job vacancies while wage increases are slowing.",
+      "kind": "fact",
+      "quote": "",
+      "verified": false,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This signals that job opportunities and pay, especially for young workers and small employers, are under pressure despite the headline numbers.",
+      "kind": "context",
+      "quote": "Taken together, declining payroll employment, falling vacancies and slower wage growth suggest labour demand and pay pressures are easing, despite the better unemployment headline.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "Tom highlights how the weakening job market especially for small businesses like his local bakery makes hiring and retaining workers harder amid high costs and slowing wage growth.",
+      "kind": "council",
+      "quote": "Smaller businesses accounted for the entire net quarterly decline, as vacancies among firms employing one to nine workers dropped by 22,000 to 73,000.",
+      "verified": true,
+      "reviewer": "tom",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "UK unemployment has fallen slightly to four point six percent, but this just partly reflects changes in how the data was collected rather than real job growth. At the same time, fewer people are on payrolls and small businesses are seeing fewer job vacancies while wage increases are slowing. This signals that job opportunities and pay, especially for young workers and small employers, are under pressure despite the headline numbers. Tom highlights how the weakening job market especially for small businesses like his local bakery makes hiring and retaining workers harder amid high costs and slowing wage growth."
+   },
+   {
+    "id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+    "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+    "publication": "Invezz",
+    "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+    "published_at": "2026-11-17T07:12:53+00:00",
+    "topic": "markets",
+    "feed": "invezz_en",
+    "summary": "Brent crude oil prices have dropped toward ninety dollars a barrel due to increased oil exports from the Middle East and weaker demand, especially from China. This could ease energy costs for people commuting or heating homes, though ongoing geopolitical risks keep prices unstable. The situation means potential short-term relief on bills but also uncertainty about future price spikes affecting ordinary budgets.",
+    "claims": [
+     {
+      "text": "Brent crude oil prices have dropped toward ninety dollars a barrel due to increased oil exports from the Middle East and weaker demand, especially from China.",
+      "kind": "fact",
+      "quote": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent crude closer to $90 a barrel",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This could ease energy costs for people commuting or heating homes, though ongoing geopolitical risks keep prices unstable.",
+      "kind": "context",
+      "quote": "",
+      "verified": false,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "The situation means potential short-term relief on bills but also uncertainty about future price spikes affecting ordinary budgets.",
+      "kind": "context",
+      "quote": "Alternative routes have helped maintain exports but remain vulnerable to logistical problems and attacks. Meanwhile, US Strategic Petroleum Reserve holdings have fallen to 276.4 million barrels, their lowest since August 1982.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Brent crude oil prices have dropped toward ninety dollars a barrel due to increased oil exports from the Middle East and weaker demand, especially from China. This could ease energy costs for people commuting or heating homes, though ongoing geopolitical risks keep prices unstable. The situation means potential short-term relief on bills but also uncertainty about future price spikes affecting ordinary budgets."
+   },
+   {
+    "id": "IBTU-10010345-01M7KJ1K4ZMA95N260B8T0WSNK",
+    "headline": "Amtrak Halts Service Around Washington, DC, After Local Officials Place Track Hold; No ETA Initially Given",
+    "publication": "International Business Times UK",
+    "url": "https://www.ibtimes.co.uk/amtrak-service-halted-washington-dc-track-hold-1832664",
+    "published_at": "2026-11-16T21:47:25+00:00",
+    "topic": "world",
+    "feed": "ibtimes_uk",
+    "summary": "Amtrak has unexpectedly halted train service around Washington, DC, after local officials placed a hold on the tracks just north of the city. There is no clear explanation or timetable for when service will resume, causing confusion and disruption for commuters who rely on this public transit. This sudden shutdown affects many passengers' daily travel and raises concerns about transparency and communication from the authorities.",
+    "claims": [
+     {
+      "text": "Amtrak has unexpectedly halted train service around Washington, DC, after local officials placed a hold on the tracks just north of the city.",
+      "kind": "fact",
+      "quote": "Amtrak halted train service around Washington, DC, on Monday, 16 November, after local officials placed a hold on the tracks just north of the city.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "There is no clear explanation or timetable for when service will resume, causing confusion and disruption for commuters who rely on this public transit.",
+      "kind": "fact",
+      "quote": "The US passenger rail operator said it could not initially estimate when services would resume because the restriction had been imposed by a local municipal government.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This sudden shutdown affects many passengers' daily travel and raises concerns about transparency and communication from the authorities.",
+      "kind": "fact",
+      "quote": "Passengers were left without a confirmed timetable while the local hold remained unresolved.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "Amtrak has unexpectedly halted train service around Washington, DC, after local officials placed a hold on the tracks just north of the city. There is no clear explanation or timetable for when service will resume, causing confusion and disruption for commuters who rely on this public transit. This sudden shutdown affects many passengers' daily travel and raises concerns about transparency and communication from the authorities."
+   },
+   {
+    "id": "IBTU-10010345-01M7JNQ6VRRH4RNSJZKZ5J2EM1",
+    "headline": "Trump Points Finger at Biden Administration After Nationwide FAA Ground Stop Sparks Travel Chaos",
+    "publication": "International Business Times UK",
+    "url": "https://www.ibtimes.co.uk/trump-blames-biden-faa-ground-stop-us-flights-1832464",
+    "published_at": "2026-11-16T16:14:58+00:00",
+    "topic": "world",
+    "feed": "ibtimes_uk",
+    "summary": "A nationwide FAA ground stop paused nearly all departing flights across the United States for more than four hours, causing thousands of delays and cancellations. This disruption exposed the critical issue of outdated aviation infrastructure, with some equipment dating back to the 1960s, and led to calls for a fifty billion dollar investment to modernize the system. For university students who rely on travel, this highlights urgent challenges in public transport and the political debates that impact funding and reliability of services they depend on.",
+    "claims": [
+     {
+      "text": "A nationwide FAA ground stop paused nearly all departing flights across the United States for more than four hours, causing thousands of delays and cancellations.",
+      "kind": "fact",
+      "quote": "Friday's nationwide ground stop lasted more than four hours, halting nearly all departing flights and disrupting air travel across the United States.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "This disruption exposed the critical issue of outdated aviation infrastructure, with some equipment dating back to the 1960s, and led to calls for a fifty billion dollar investment to modernize the system.",
+      "kind": "fact",
+      "quote": "He pointed to longstanding problems with ageing aviation infrastructure, including radar equipment dating back to the 1960s.",
+      "verified": true,
+      "reviewer": "",
+      "numbers_ok": true
+     },
+     {
+      "text": "For university students who rely on travel, this highlights urgent challenges in public transport and the political debates that impact funding and reliability of services they depend on.",
+      "kind": "context",
+      "quote": "",
+      "verified": false,
+      "reviewer": "",
+      "numbers_ok": true
+     }
+    ],
+    "claims_for": "A nationwide FAA ground stop paused nearly all departing flights across the United States for more than four hours, causing thousands of delays and cancellations. This disruption exposed the critical issue of outdated aviation infrastructure, with some equipment dating back to the 1960s, and led to calls for a fifty billion dollar investment to modernize the system. For university students who rely on travel, this highlights urgent challenges in public transport and the political debates that impact funding and reliability of services they depend on."
+   }
+  ],
+  "audio": [
+   "audio/lena/0.mp3",
+   "audio/lena/1.mp3",
+   "audio/lena/2.mp3",
+   "audio/lena/3.mp3",
+   "audio/lena/4.mp3",
+   "audio/lena/5.mp3",
+   "audio/lena/6.mp3"
+  ]
+ }
+}
