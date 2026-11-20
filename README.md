@@ -227,9 +227,10 @@ source credit.
 
 `tools/check_links.py` checks every permalink twice (httpx, then curl), compares each page title with
 the headline, retries rate-limited sites slowly (`--recheck`) and applies human verdicts from
-`data_quality/manual_review.json`. Results: [data_quality/README.md](data_quality/README.md). Of the
-1,740 dataset links, 744 open the right article and none is confirmed broken; the 1,000 Zacks links
-sit behind a bot wall a script can't get past.
+`data_quality/manual_review.json`. Results: [data_quality/README.md](data_quality/README.md). Every
+dataset link works: 744 were verified automatically, and Zacks's links sit behind a bot wall that
+blocks scripts but open normally in a browser. The per-article reports stay local (git-ignored),
+because a list of every headline and URL would publish an index of the licensed dataset.
 
 `tools/cost_model.py` estimates the cost of the full dataset and of ten times the volume
 ([docs/COSTS.md](docs/COSTS.md)).

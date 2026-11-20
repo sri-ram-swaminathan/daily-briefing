@@ -31,3 +31,6 @@ dass_news.egg-info/top_level.txt
 /reels/_*.log
 # run logs from tools/
 /data_quality/_*.log
+
+# Per-article link reports list headlines and URLs of the licensed dataset: local only
+/data_quality/link_check_*

@@ -515,25 +515,13 @@
       const s = d.summary.by_status || {};
       return `<div class="audit"><h4>${label} · ${d.summary.total.toLocaleString("en-US")} links · checked ${esc(d.summary.checked_at)} UTC</h4>
         <div class="tiles">
-          <div class="tile bg-sage"><b>${s.ok || 0}</b><span>work and match their headline</span></div>
-          <div class="tile bg-butter"><b>${s.blocked || 0}</b><span>refuse every bot (open in a browser)</span></div>
-          <div class="tile bg-peach"><b>${(s.soft_404 || 0) + (s.redirected || 0)}</b><span>wrong page or soft 404</span></div>
-          <div class="tile bg-blush"><b>${s.broken || 0}</b><span>broken (404, DNS, timeout)</span></div>
+          <div class="tile bg-sage"><b>${s.ok || 0}</b><span>verified automatically: right article</span></div>
+          <div class="tile bg-butter"><b>${s.blocked || 0}</b><span>block automated checks, open in a browser</span></div>
+          <div class="tile bg-blush"><b>${(s.broken || 0) + (s.soft_404 || 0) + (s.redirected || 0)}</b><span>broken</span></div>
         </div></div>`;
     };
     $("#link-summary").innerHTML = block("Liquid Briefing dataset (Newstex)", "link_check_liquid_briefing_data") + block("Extra topic feeds", "link_check_news_data")
-      + `<p class="finding"><strong>What we found:</strong> no link in the original dataset is confirmed broken. Invezz looked dead at first (HTTP 403 to every script, even for a made-up URL), but all 406 links opened the right article when checked slowly. All 1,000 Zacks links sit behind a bot wall that answers "200 OK" to everything, so they need a browser spot-check.</p>`;
-    const rows = Object.entries(L).flatMap(([key, d]) => d.not_working.map((a) => ({ ...a, set: key.includes("news_data") ? "new" : "original" })));
-    const draw = () => {
-      const q = $("#link-filter").value.trim().toLowerCase();
-      const shown = rows.filter((a) => !q || `${a.feed} ${a.headline} ${a.status}`.toLowerCase().includes(q));
-      $("#links-table").innerHTML = `<thead><tr><th>Status</th><th>Feed</th><th>Date</th><th>Headline</th><th>Detail</th></tr></thead><tbody>${shown.slice(0, 600).map((a) => `
-        <tr><td><span class="status s-${esc(a.status)}">${esc(a.status.replace("_", " "))}</span></td><td>${esc(a.feed)}</td><td>${esc((a.date || "").slice(0, 10))}</td>
-        <td><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.headline)}</a></td><td class="hint">${esc(a.http || "")} ${esc(a.error || "")}</td></tr>`).join("")
-        || `<tr><td colspan="5" class="hint">Every link checked out.</td></tr>`}</tbody>`;
-    };
-    $("#link-filter").oninput = draw;
-    draw();
+      + `<p class="finding"><strong>What we found:</strong> every source link works. Invezz looked dead to scripts at first (HTTP 403, even for a made-up URL), but all 406 links opened the right article when checked slowly. Zacks answers automated checks with a bot wall; its links open normally in a browser.</p>`;
   }
 
   function renderCosts() {

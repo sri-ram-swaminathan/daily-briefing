@@ -269,16 +269,17 @@ def coverage(index: NewsIndex) -> dict:
 
 
 def links() -> dict:
+    """Counts only. Per-article rows (headlines, URLs) would publish an index of the licensed dataset."""
     out = {}
     names = ["link_check_liquid_briefing_data"] + (["link_check_news_data"] if INCLUDE_EXTRA else [])
     for name in names:
-        path = ROOT / "data_quality" / f"{name}.json"
+        path = ROOT / "data_quality" / f"{name}.json"  # local only (git-ignored), written by check_links.py
         if not path.exists():
             continue
-        raw = json.loads(path.read_text(encoding="utf-8"))
-        bad = [{k: a.get(k) for k in ("feed", "date", "headline", "url", "status", "http", "error", "page_title")}
-               for a in raw["articles"] if a["status"] != "ok"]
-        out[name] = {"summary": raw["summary"], "not_working": bad}
+        s = json.loads(path.read_text(encoding="utf-8"))["summary"]
+        out[name] = {"summary": {k: s.get(k) for k in ("checked_at", "total", "by_status")}}
+    if not out and (DATA / "links.json").exists():  # no local reports: keep the published counts
+        out = json.loads((DATA / "links.json").read_text(encoding="utf-8"))
     return out
 
 
