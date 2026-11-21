@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261121d">
+  <link rel="stylesheet" href="styles.css?v=20261121e">
 </head>
 <body>
   <a class="skip" href="#briefing">Skip to your briefing</a>
@@ -196,41 +196,43 @@
       <header class="section-head">
         <p class="kicker">What's next</p>
         <h2>Still under construction</h2>
-        <p class="dek">The prototype works. Here's what we'd build next, and what we already know needs fixing.</p>
+        <p class="dek">The prototype works. Three tracks of work come next: who pays for it, how it scales, and how it stays fair.</p>
       </header>
       <div class="next-list">
-        <article class="next-item">
-          <figure class="site-art">
-            <div class="tape" aria-hidden="true"></div>
-            <img src="assets/next/cost.png" alt="Hand-drawn construction site: a crane lowers a coin into a piggy bank wrapped in scaffolding." width="960" height="640" loading="lazy">
-          </figure>
-          <div class="next-text">
-            <p class="kicker">I · Cost</p>
-            <h3>Cheap enough to give away</h3>
-            <p>One listener costs about 48 cents a day today, and most of that is the voice.</p>
-            <ul>
-              <li><b>Triage first:</b> skip stories no persona would react to, and cache prompts. The council goes from $12.84 to $4.81.</li>
-              <li><b>Batch overnight</b> at half price.</li>
-              <li><b>Voice once:</b> narrate shared facts once per story, not once per listener.</li>
-            </ul>
-            <p class="next-goal"><span class="smallcaps">Target</span> 10–15¢ per listener per day</p>
-          </div>
-        </article>
         <article class="next-item">
           <figure class="site-art">
             <div class="tape" aria-hidden="true"></div>
             <img src="assets/next/business.png" alt="Hand-drawn construction site: a newspaper kiosk grows into a tall building with scaffolding and a crane." width="960" height="640" loading="lazy">
           </figure>
           <div class="next-text">
-            <p class="kicker">II · Business and scale</p>
-            <h3>Who pays, and how it grows</h3>
-            <p>The council's cost grows with the news, not the audience, so margins improve as more people listen.</p>
+            <p class="kicker">I · Business</p>
+            <h3>Find the people who pay</h3>
+            <p>The council's cost grows with the news, not the audience, so every extra listener improves the margin. The job now is signing the first paying customers.</p>
             <ul>
-              <li><b>Publishers</b> offer it as a premium subscription tier; <b>professional desks</b> pay per seat.</li>
+              <li><b>Publishers</b> offer it as a premium subscription tier on top of the journalism they already own.</li>
+              <li><b>Professional desks</b> (finance, policy, comms) pay per seat for a briefing tuned to their beat.</li>
               <li><b>Syndicators</b> like Newstex resell it: one integration, many outlets.</li>
-              <li><b>Scale:</b> a real search index, a morning job queue, briefings in German and Dutch.</li>
             </ul>
-            <p class="next-goal"><span class="smallcaps">Target</span> one integration per syndicator</p>
+            <p class="next-goal"><span class="smallcaps">Target</span> first paying pilots with a publisher and a syndicator</p>
+          </div>
+        </article>
+        <article class="next-item">
+          <figure class="site-art">
+            <div class="tape" aria-hidden="true"></div>
+            <img src="assets/next/cost.png" alt="Hand-drawn construction site: a crane lowers a coin into a piggy bank wrapped in scaffolding." width="960" height="640" loading="lazy">
+          </figure>
+          <div class="next-text">
+            <p class="kicker">II · Technical</p>
+            <h3>Retrieval that scales</h3>
+            <p>Today the archive is small enough to read directly. That stops working once we cover many more sources and scrape them all day.</p>
+            <ul>
+              <li><b>RAG at scale:</b> a vector database with hybrid keyword and semantic search, so the council pulls the right handful of articles out of millions.</li>
+              <li><b>Continuous sourcing:</b> a scraping and ingestion pipeline that runs around the clock, deduplicates stories and keeps the index fresh.</li>
+              <li><b>Many more databases:</b> wires, archives and public records, not just today's few feeds.</li>
+              <li><b>Unorthodox local sources:</b> Instagram, TikTok and community channels, where local news often breaks first.</li>
+              <li><b>Source validation:</b> every claim checked against the source it cites, with unverified posts flagged or dropped.</li>
+            </ul>
+            <p class="next-goal"><span class="smallcaps">Target</span> millions of articles, every citation verified</p>
           </div>
         </article>
         <article class="next-item">
@@ -239,14 +241,15 @@
             <img src="assets/next/issues.png" alt="Hand-drawn repair site: workers mend a cracked bridge made of speech bubbles beside a warning sign." width="960" height="640" loading="lazy">
           </figure>
           <div class="next-text">
-            <p class="kicker">III · Known issues</p>
-            <h3>What's broken, and the fix</h3>
-            <p>We'd rather say it before you find it.</p>
+            <p class="kicker">III · Ethics</p>
+            <h3>Fair personas, private data</h3>
+            <p>A council that speaks for people has to represent them fairly and treat what they tell it with care.</p>
             <ul>
-              <li><b>Personas can stereotype.</b> Co-write them with real people and audit for bias.</li>
-              <li><b>The learning loop isn't closed:</b> listener signals aren't stored yet. Log them with consent.</li>
+              <li><b>No stereotypes:</b> co-write personas with the people they stand for and audit them for racist or stereotyped portrayals before they go live.</li>
+              <li><b>GDPR by design:</b> collect only what we need, with clear consent, data kept in the EU, and the right to see or delete it.</li>
+              <li><b>No hidden monitoring:</b> listener signals are logged only with consent, anonymised, and never sold or used to track people.</li>
             </ul>
-            <p class="next-goal"><span class="smallcaps">Target</span> personas shaped by the people they stand for</p>
+            <p class="next-goal"><span class="smallcaps">Target</span> audited personas and GDPR-compliant data</p>
           </div>
         </article>
       </div>
@@ -263,6 +266,6 @@
   </footer>
 
   <div class="toast" id="toast" role="status" hidden></div>
-  <script src="app.js?v=20261121d"></script>
+  <script src="app.js?v=20261121e"></script>
 </body>
 </html>
