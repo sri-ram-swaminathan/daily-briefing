@@ -455,3 +455,21 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   .next-item:nth-child(even) .site-art { order: 0; }
   .site-art { width: 220px; margin: 0 auto; }
 }
+
+/* ---------- Present mode: one section per slide ---------- */
+.present-btn { font: 600 12px var(--sans); letter-spacing: .04em; color: var(--ink); background: var(--butter);
+  border: 1px solid var(--ink); border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+.present-btn:hover { background: var(--peach); }
+body.presenting .present-btn { background: var(--ink); color: var(--paper); }
+body.presenting main > section { min-height: calc(100vh - 56px); }
+body.presenting .footer { display: none; }
+.deck-hud { position: fixed; right: 16px; bottom: 16px; z-index: 55; display: flex; align-items: center; gap: 4px;
+  background: var(--ink); color: var(--paper); border-radius: 999px; padding: 4px; box-shadow: var(--shadow); font: 500 13px var(--sans); }
+.deck-hud[hidden] { display: none; }
+.deck-hud button { background: transparent; color: var(--paper); border: 0; cursor: pointer; border-radius: 999px;
+  width: 34px; height: 34px; font: 600 20px/1 var(--sans); }
+.deck-hud button:hover, .deck-hud button:focus-visible { background: rgba(255,255,255,.14); }
+.deck-hud .deck-exit { font-size: 14px; }
+.deck-count { padding: 0 8px; white-space: nowrap; }
+.deck-count b { font-weight: 700; margin-right: 6px; }
+@media (max-width: 720px) { .deck-count .deck-title { display: none; } }

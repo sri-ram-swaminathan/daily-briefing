@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261121e">
+  <link rel="stylesheet" href="styles.css?v=20261121f">
 </head>
 <body>
   <a class="skip" href="#briefing">Skip to your briefing</a>
@@ -35,6 +35,7 @@
       <a href="#reels">Reels</a>
       <a href="#newsroom">Flywheel</a>
       <a href="#next">What's next</a>
+      <button type="button" class="present-btn" id="present-btn" title="Step through the page section by section (P)">▶ Present</button>
     </nav>
   </header>
 
@@ -266,6 +267,12 @@
   </footer>
 
   <div class="toast" id="toast" role="status" hidden></div>
-  <script src="app.js?v=20261121e"></script>
+  <div class="deck-hud" id="deck-hud" hidden>
+    <button type="button" class="deck-arrow" id="deck-prev" aria-label="Previous section">‹</button>
+    <span class="deck-count" id="deck-count" aria-live="polite"></span>
+    <button type="button" class="deck-arrow" id="deck-next" aria-label="Next section">›</button>
+    <button type="button" class="deck-exit" id="deck-exit" aria-label="Exit presentation" title="Exit (Esc)">✕</button>
+  </div>
+  <script src="app.js?v=20261121f"></script>
 </body>
 </html>

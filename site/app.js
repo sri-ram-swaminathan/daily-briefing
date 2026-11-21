@@ -729,6 +729,65 @@
   }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
 
+  // ------------------------------------------------------------------ present mode
+  // Step through the page like a slide deck: one section per slide. Arrow keys, PageUp/PageDown
+  // (what presentation clickers send), Home/End; P toggles, Esc exits. ?present opens in this mode.
+  (() => {
+    const slides = [...document.querySelectorAll("main > section[id]")];
+    const hud = $("#deck-hud"), btn = $("#present-btn");
+    const label = (s) => document.querySelector(`.nav a[href="#${s.id}"]`)?.textContent || s.id;
+    const current = () => {
+      const y = window.scrollY + window.innerHeight * 0.3;
+      let i = 0;
+      slides.forEach((s, k) => { if (s.offsetTop <= y) i = k; });
+      return i;
+    };
+    const update = () => {
+      const i = current();
+      $("#deck-count").innerHTML = `<b>${i + 1} / ${slides.length}</b><span class="deck-title">${esc(label(slides[i]))}</span>`;
+      $("#deck-prev").disabled = i === 0;
+      $("#deck-next").disabled = i === slides.length - 1;
+    };
+    const go = (i, behavior = "smooth") => {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      if (i === 0) window.scrollTo({ top: 0, behavior });
+      else slides[i].scrollIntoView({ behavior, block: "start" });
+      history.replaceState(null, "", `#${slides[i].id}`);
+    };
+    const on = () => document.body.classList.contains("presenting");
+    const toggle = (want = !on()) => {
+      document.body.classList.toggle("presenting", want);
+      hud.hidden = !want;
+      btn.textContent = want ? "■ Exit" : "▶ Present";
+      if (want) update();
+    };
+    btn.onclick = () => toggle();
+    $("#deck-prev").onclick = () => go(current() - 1);
+    $("#deck-next").onclick = () => go(current() + 1);
+    $("#deck-exit").onclick = () => toggle(false);
+    window.addEventListener("scroll", () => on() && update(), { passive: true });
+    document.addEventListener("keydown", (e) => {
+      if (e.target.matches("input, textarea, select, [contenteditable]") || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.key === "p" || e.key === "P") { toggle(); return; }
+      if (!on()) return;
+      // while the briefing is playing, the arrow keys skip stories; clicker keys still change slides
+      const playing = $("#player")?.classList.contains("playing");
+      const fwd = ["PageDown"].concat(playing ? [] : ["ArrowRight"]);
+      const back = ["PageUp"].concat(playing ? [] : ["ArrowLeft"]);
+      if (fwd.includes(e.key)) { e.preventDefault(); go(current() + 1); }
+      else if (back.includes(e.key)) { e.preventDefault(); go(current() - 1); }
+      else if (e.key === "Home") { e.preventDefault(); go(0); }
+      else if (e.key === "End") { e.preventDefault(); go(slides.length - 1); }
+      else if (e.key === "Escape") toggle(false);
+    });
+    if (new URLSearchParams(location.search).has("present")) {
+      const start = slides.findIndex((s) => `#${s.id}` === location.hash);
+      toggle(true);
+      // the demo data renders after load and pushes sections down, so land again once it settles
+      if (start > 0) [0, 800, 2000].forEach((t) => setTimeout(() => go(start, "instant"), t));
+    }
+  })();
+
   // ------------------------------------------------------------------ boot
   (async () => {
     const names = ["council", "edition", "readers", "qa", "reels", "costs"];
