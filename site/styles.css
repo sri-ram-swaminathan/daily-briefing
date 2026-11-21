@@ -81,6 +81,14 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section-head h2 { font: 800 clamp(32px, 4.6vw, 52px)/1.05 var(--display); margin: 0 0 12px; letter-spacing: -.01em; }
 .dek { font: 400 italic 20px/1.5 var(--serif); color: var(--ink-2); margin: 0; }
 
+/* ---------- Demo video ---------- */
+.demo { padding: 36px 0 0; }
+.demo-figure { max-width: 960px; margin: 0 auto; }
+.demo-frame { position: relative; aspect-ratio: 16 / 9; background: var(--ink); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.demo-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.demo-caption { margin-top: 12px; text-align: center; font: 400 italic 16px/1.5 var(--serif); color: var(--ink-2); }
+.demo-caption .kicker { display: block; font-style: normal; margin-bottom: 6px; }
+
 /* ---------- Front ---------- */
 .front { padding: 48px 0 8px; text-align: center; }
 .lead-headline { font: 900 clamp(36px, 6.4vw, 78px)/1.02 var(--display); margin: 0 auto 18px; max-width: 1100px; letter-spacing: -.015em; text-wrap: balance; }
